@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Curio</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/typography.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-mark.svg" alt="Curio" class="logo-icon">
+                <div class="logo-text">
+                    Curio
+                    <span class="logo-tagline">Gifts That Tell Your Story</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="home-2.html" class="nav-link">Home 2</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button class="icon-btn" id="dir-toggle" aria-label="Toggle RTL">RTL</button>
+                <a href="shop.html" class="btn btn-primary" style="text-decoration: none;">Shop Now</a>
+                <button class="icon-btn hamburger" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+                    <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg class="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="home-2.html" class="nav-link">Home 2</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Section 1: Header -->
+    <section class="section" style="padding: 100px 0;">
+        <div class="container text-center reveal">
+            <h6 class="text-accent mb-2">The Curio Journal</h6>
+            <h1 class="mb-2">Notes On The Art Of Giving</h1>
+            <p class="subtitle">Guides, stories and inspiration from our curators — written for people who give thoughtfully.</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Featured Post -->
+    <section class="section bg-secondary" style="background: var(--bg-secondary);">
+        <div class="container grid grid-2 align-center">
+            <div class="reveal fade-left" style="height: 320px; border-radius: var(--radius-lg); overflow: hidden;">
+                <img src="../assets/images/products/gift-box-wedding.jpg" alt="The perfect wedding gift" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="reveal fade-right">
+                <span class="badge">Featured</span>
+                <h2 class="mb-2 mt-2">The Complete Wedding Gift Guide</h2>
+                <p class="text-muted mb-3">From engagement parties to the final thank-you notes — how to choose, personalise and present a wedding gift they will treasure long after the confetti settles.</p>
+                <p class="text-sm text-muted mb-3">By Sarah Croft · 8 min read</p>
+                <a href="blog-details.html" class="btn btn-primary">Read the Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Categories -->
+    <section class="section">
+        <div class="container text-center reveal">
+            <h2 class="mb-4">Browse By Category</h2>
+            <div class="flex gap-sm justify-center" style="flex-wrap: wrap;">
+                <a href="blog.html" class="hero-chip">Gifting Guides</a>
+                <a href="blog.html" class="hero-chip">Weddings</a>
+                <a href="blog.html" class="hero-chip">Corporate</a>
+                <a href="blog.html" class="hero-chip">Festivals</a>
+                <a href="blog.html" class="hero-chip">Behind The Scenes</a>
+                <a href="blog.html" class="hero-chip">Interviews</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Recent Posts Grid -->
+    <section class="section bg-secondary" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center section-title reveal">
+                <h6 class="text-accent">Fresh From The Atelier</h6>
+                <h2>Recent Posts</h2>
+            </div>
+            <div class="grid grid-3 mt-4">
+                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/gold-pen.jpg" alt="Corporate gifting etiquette" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body"><h3 class="card-title">Corporate Gifting Etiquette: 10 Rules</h3><p class="text-muted text-sm mb-2">What to give, what to avoid, and how to make it feel personal at scale.</p><a href="blog-details.html" class="text-accent text-sm">Read More &rarr;</a></div></div>
+                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/ceramic-vase.jpg" alt="Artisan spotlight" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body"><h3 class="card-title">Meet The Artisans Behind Our Ceramics</h3><p class="text-muted text-sm mb-2">A visit to the potters' studio where every vase is thrown, glazed and fired by hand.</p><a href="blog-details.html" class="text-accent text-sm">Read More &rarr;</a></div></div>
+                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/candle-trio.jpg" alt="Scented candle guide" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body"><h3 class="card-title">Choosing The Perfect Scented Candle</h3><p class="text-muted text-sm mb-2">Wax, wick and fragrance families — a short guide to gifting scent with confidence.</p><a href="blog-details.html" class="text-accent text-sm">Read More &rarr;</a></div></div>
+                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/diya-set.jpg" alt="Diwali gift guide" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body"><h3 class="card-title">Diwali Gift Hampers: What To Include</h3><p class="text-muted text-sm mb-2">Our curator's favourite combination of light, sweet and keepsake for the festival of lights.</p><a href="blog-details.html" class="text-accent text-sm">Read More &rarr;</a></div></div>
+                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/gift-box-birthday.jpg" alt="Birthday gift guide" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body"><h3 class="card-title">The Psychology of a Great Birthday Gift</h3><p class="text-muted text-sm mb-2">Why the best gifts are remembered long after they are used — and how to pick one.</p><a href="blog-details.html" class="text-accent text-sm">Read More &rarr;</a></div></div>
+                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/silk-scarf.jpg" alt="Silk scarf styling" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body"><h3 class="card-title">Five Ways To Wear A Silk Scarf</h3><p class="text-muted text-sm mb-2">The gift that keeps on giving — styling notes to slip inside the box.</p><a href="blog-details.html" class="text-accent text-sm">Read More &rarr;</a></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Newsletter -->
+    <section class="section" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
+        <div class="container text-center reveal">
+            <h2 style="color: var(--color-white);">Get The Journal In Your Inbox</h2>
+            <p class="subtitle mb-4" style="color: rgba(255,255,255,0.85);">A monthly letter from our curators — new guides, seasonal drops and stories from the atelier.</p>
+            <form class="newsletter-form" style="max-width: 460px; margin: 0 auto;" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section 6: Instagram Feed -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center section-title reveal">
+                <h6 class="text-accent">@curiogifts</h6>
+                <h2>Follow The Atelier</h2>
+                <p class="subtitle">Wrapping tutorials, unboxings and behind-the-scenes moments, weekly.</p>
+            </div>
+            <div class="grid grid-6 mt-4">
+                <div class="reveal" style="height: 160px; border-radius: var(--radius-md); overflow: hidden;"><img src="../assets/images/products/gift-box-birthday.jpg" alt="Instagram post 1" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="reveal" style="height: 160px; border-radius: var(--radius-md); overflow: hidden;"><img src="../assets/images/products/candle-set.jpg" alt="Instagram post 2" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="reveal" style="height: 160px; border-radius: var(--radius-md); overflow: hidden;"><img src="../assets/images/products/ceramic-vase.jpg" alt="Instagram post 3" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="reveal" style="height: 160px; border-radius: var(--radius-md); overflow: hidden;"><img src="../assets/images/products/diya-set.jpg" alt="Instagram post 4" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="reveal" style="height: 160px; border-radius: var(--radius-md); overflow: hidden;"><img src="../assets/images/products/gold-pen.jpg" alt="Instagram post 5" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="reveal" style="height: 160px; border-radius: var(--radius-md); overflow: hidden;"><img src="../assets/images/products/silk-scarf.jpg" alt="Instagram post 6" style="width: 100%; height: 100%; object-fit: cover;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="position: relative;">
+        <div class="footer-separator"></div>
+        <div class="footer-container">
+            <div class="grid grid-4" style="align-items: flex-start; gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <a href="../index.html" class="logo" style="color: var(--color-white); margin-bottom: 1rem;">
+                        <img src="../assets/images/logo-mark.svg" alt="Curio" class="logo-icon">
+                        <div class="logo-text">
+                            Curio
+                            <span class="logo-tagline">Gifts That Tell Your Story</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">Curio's most exclusive destination for personalized gifts and fine souvenirs. A curated sanctuary where every piece tells an extraordinary story.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">ig</a>
+                        <a href="#" aria-label="Facebook">fb</a>
+                        <a href="#" aria-label="Twitter">tw</a>
+                        <a href="#" aria-label="YouTube">yt</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Collections</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html" class="footer-link">Luxury Gifts</a></li>
+                        <li><a href="shop.html" class="footer-link">Wedding Sets</a></li>
+                        <li><a href="shop.html" class="footer-link">Corporate</a></li>
+                        <li><a href="shop.html" class="footer-link">Personalized</a></li>
+                        <li><a href="services.html" class="footer-link">Gift Wrapping</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Maison</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html" class="footer-link">Home</a></li>
+                        <li><a href="home-2.html" class="footer-link">Home 2</a></li>
+                        <li><a href="about.html" class="footer-link">About</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
+                        <li><a href="blog.html" class="footer-link">Journal</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>The Private List</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; color: #a0a0a0;">Receive exclusive previews, private sale invitations, and gifting insights before anyone else.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Curio. All rights reserved. Established 2010.</div>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html" style="color: #a0a0a0; text-decoration: none;">Privacy Policy</a>
+                    <a href="terms-conditions.html" style="color: #a0a0a0; text-decoration: none;">Terms & Conditions</a>
+                    <a href="sitemap.html" style="color: #a0a0a0; text-decoration: none;">Sitemap</a>
+                </div>
+                <a href="#" class="scroll-top" aria-label="Scroll to top" style="font-size: 1.2rem; font-family: sans-serif; text-decoration: none;">&uarr;</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
