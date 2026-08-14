@@ -50,15 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   if (menuToggle && mobileMenu) {
+    const setBodyLock = (locked) => {
+      document.documentElement.style.overflow = locked ? 'hidden' : '';
+      document.body.style.overflow = locked ? 'hidden' : '';
+    };
     const closeMenu = () => {
       mobileMenu.classList.remove('open');
       menuToggle.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
+      setBodyLock(false);
     };
     menuToggle.addEventListener('click', () => {
       const open = mobileMenu.classList.toggle('open');
       menuToggle.classList.toggle('open', open);
       menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setBodyLock(open);
     });
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMenu);
@@ -79,6 +85,28 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll(); // Trigger on load
+
+  // Form Submissions: no page reload, success message + reset fields
+  document.addEventListener('submit', (e) => {
+    const form = e.target;
+    if (!form || form.tagName !== 'FORM') return;
+    e.preventDefault();
+
+    form.querySelectorAll('input, textarea, select').forEach(el => { el.value = ''; });
+
+    let msg = form.querySelector('.form-success');
+    if (!msg) {
+      msg = document.createElement('div');
+      msg.className = 'form-success';
+      msg.textContent = 'Thank you! Your submission was successful.';
+      form.appendChild(msg);
+    } else {
+      msg.style.display = '';
+    }
+
+    clearTimeout(msg._hideTimer);
+    msg._hideTimer = setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  });
 });
 
 function updateThemeIcon(btn, theme) {

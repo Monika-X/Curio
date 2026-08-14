@@ -14,9 +14,406 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+    <style>
+        /* ===== Contact: Premium (lighter than Home 2) ===== */
+        .ct-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.15rem;
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: normal;
+            max-width: 100%;
+        }
+
+        .ct-eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .section-title .ct-eyebrow {
+            display: flex;
+            width: fit-content;
+            margin: 0 auto 1rem auto;
+        }
+
+        @media (max-width: 640px) {
+            .ct-eyebrow {
+                font-size: 0.68rem;
+                letter-spacing: 1.2px;
+                padding: 0.4rem 0.9rem;
+                gap: 0.4rem;
+                line-height: 1.5;
+            }
+        }
+
+        .ct-hero {
+            position: relative;
+            padding: 180px 0;
+            background-image: linear-gradient(rgba(26, 10, 10, 0.6), rgba(26, 10, 10, 0.68)), url('https://i.pinimg.com/736x/7a/e5/46/7ae546875fe2dddcf8945c8009cb20bb.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .ct-hero h1 { color: var(--color-white); }
+        .ct-hero p { color: rgba(255, 255, 255, 0.85); }
+
+        .ct-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 0 auto 1.5rem;
+        }
+        .ct-divider::before,
+        .ct-divider::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8));
+        }
+        .ct-divider::after { background: linear-gradient(90deg, rgba(212, 175, 55, 0.8), transparent); }
+        .ct-divider span {
+            width: 7px;
+            height: 7px;
+            background: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
+        .ct-card {
+            position: relative;
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            height: 100%;
+            text-align: center;
+        }
+
+        .ct-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .ct-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 44px rgba(59, 37, 37, 0.14);
+        }
+
+        .ct-ico {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.14);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--color-accent);
+        }
+
+        .ct-frame {
+            position: relative;
+            padding: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: var(--color-white);
+        }
+
+        .ct-frame::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            pointer-events: none;
+        }
+
+        .ct-form-section {
+            background:
+                radial-gradient(ellipse at 15% 0%, rgba(212, 175, 55, 0.14), transparent 50%),
+                radial-gradient(ellipse at 90% 100%, rgba(212, 175, 55, 0.1), transparent 45%),
+                linear-gradient(135deg, #3a1a24 0%, var(--color-primary) 60%, #4a1f2c 100%);
+            color: var(--color-white);
+        }
+
+        .ct-form-section .section-title h2 { color: var(--color-white); }
+        .ct-form-section .subtitle { color: rgba(255, 255, 255, 0.75); }
+
+        .ct-form-section .ct-frame {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .ct-form-card { padding: 2rem; }
+
+        .ct-form-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding-bottom: 1.1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+        }
+
+        .ct-form-head h3 { margin: 0; font-size: 1.3rem; color: var(--color-white); }
+
+        .ct-reply {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.76rem;
+            letter-spacing: 0.3px;
+        }
+
+        .ct-reply .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.22);
+        }
+
+        .ct-form .row2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .ct-form .form-label {
+            display: block;
+            margin-bottom: 0.45rem;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(246, 234, 210, 0.85);
+        }
+
+        .ct-form .form-control {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--color-white);
+        }
+
+        .ct-form .form-control::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .ct-form select.form-control option { background: var(--color-primary); color: var(--color-white); }
+
+        .ct-form .form-control:focus {
+            border-color: rgba(212, 175, 55, 0.75);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+        }
+
+        .ct-form .note { color: rgba(255, 255, 255, 0.55); }
+
+        .ct-privacy {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 100px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            color: rgba(246, 234, 210, 0.85);
+            font-size: 0.76rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 560px) {
+            .ct-form .row2 { grid-template-columns: 1fr; }
+        }
+
+        .ct-map-wrap { position: relative; }
+
+        .ct-map-wrap iframe {
+            display: block;
+            width: 100%;
+            height: 470px;
+            border: 0;
+        }
+
+        .ct-map-badge {
+            position: absolute;
+            z-index: 3;
+            left: 2.2rem;
+            bottom: -1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.4rem;
+            border-radius: var(--radius-md);
+            background: rgba(26, 10, 10, 0.92);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .ct-map-badge .b-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .ct-map-badge strong { font-size: 0.92rem; display: block; line-height: 1.3; color: var(--color-white); }
+        .ct-map-badge small { color: rgba(255, 255, 255, 0.65); font-size: 0.75rem; }
+
+        .ct-faq {
+            max-width: 880px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .ct-faq-item {
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .ct-faq-item:hover { border-color: rgba(212, 175, 55, 0.5); }
+
+        .ct-faq-item[open] {
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 14px 34px rgba(59, 37, 37, 0.12);
+        }
+
+        .ct-faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.05rem 1.3rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .ct-faq-item summary::-webkit-details-marker { display: none; }
+
+        .ct-faq-item[open] summary {
+            border-left: 3px solid var(--color-accent);
+            padding-left: calc(1.3rem - 3px);
+        }
+
+        .ct-faq-item summary::after {
+            content: '+';
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            line-height: 1;
+            color: var(--color-accent);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .ct-faq-item[open] summary::after {
+            content: '\2212';
+            transform: rotate(180deg);
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border-color: var(--color-accent);
+        }
+
+        .ct-faq-a {
+            padding: 0 1.3rem 1.15rem;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 640px) {
+            .ct-faq { max-width: 100%; }
+        }
+
+        .ct-cta {
+            position: relative;
+            text-align: center;
+            background-image: linear-gradient(rgba(26, 10, 10, 0.78), rgba(26, 10, 10, 0.85)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1600&auto=format');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .ct-cta::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            pointer-events: none;
+        }
+
+        .ct-cta .ct-eyebrow { margin-left: auto; margin-right: auto; }
+        .ct-cta h2 { color: var(--color-white); }
+        .ct-cta p { color: rgba(255, 255, 255, 0.8); }
+
+        .ct-faq h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .ct-faq h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .ct-map-wrap iframe { height: 380px; }
+            .ct-map-badge { left: 1.5rem; padding: 0.6rem 1rem; }
+        }
+    </style>
 </head>
 <body>
-        <nav class="navbar">
+<nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="logo">
                 <img src="../assets/images/logo-mark.svg" alt="Curio" class="logo-icon">
@@ -38,73 +435,110 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
                 <button class="icon-btn" id="dir-toggle" aria-label="Toggle RTL">RTL</button>
-                <a href="shop.html" class="btn btn-primary" style="text-decoration: none;">Shop Now</a>
+                <a href="contact.html" class="btn btn-primary" style="text-decoration: none;">Book Now</a>
                 <button class="icon-btn hamburger" id="menu-toggle" aria-label="Menu" aria-expanded="false">
                     <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                     <svg class="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
         </div>
-<div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu" id="mobile-menu">
                 <a href="../index.html" class="nav-link">Home</a>
                 <a href="home-2.html" class="nav-link">Home 2</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link active">Contact</a>
+            <a href="contact.html" class="btn btn-primary mobile-book">Book Now</a>
         </div>
     </nav>
 
     <!-- 1. Header -->
-    <section class="section" style="background-color: var(--bg-secondary); padding: 100px 0;">
+    <section class="ct-hero">
         <div class="container text-center reveal">
-            <h1 class="mb-2">Get In Touch</h1>
-            <p class="subtitle">We'd love to hear from you.</p>
-            <p class="mt-3 text-muted" style="max-width: 620px; margin-left: auto; margin-right: auto;">Whether you are planning a wedding gift, ordering in bulk for your company, or simply need a recommendation, our curators reply within one working day.</p>
+            <span class="ct-eyebrow mb-4"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span> Curio Atelier · Chennai</span>
+            <h1 class="mb-3">Get In Touch</h1>
+            <div class="ct-divider mb-4"><span></span></div>
+            <p class="subtitle" style="color: rgba(255,255,255,0.9);">We'd love to hear from you.</p>
+            <p class="mt-3 text-muted" style="max-width: 620px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.8);">Whether you are planning a wedding gift, ordering in bulk for your company, or simply need a recommendation, our curators reply within one working day.</p>
         </div>
     </section>
 
     <!-- 2. Contact Info Cards -->
     <section class="section">
-        <div class="container grid grid-3 mt-4 text-center">
-            <div class="card reveal"><div class="card-body"><h3>Visit Us</h3><p class="mb-1">123 Luxury Avenue, Boutique 4</p><p class="mb-1">New York, NY 10012</p><p class="text-muted text-sm">Mon–Sat · 10am – 8pm</p></div></div>
-            <div class="card reveal"><div class="card-body"><h3>Call Us</h3><p class="mb-1">+1 (555) 123-4567</p><p class="mb-1">+1 (555) 765-4321</p><p class="text-muted text-sm">Concierge · 9am – 6pm EST</p></div></div>
-            <div class="card reveal"><div class="card-body"><h3>Email</h3><p class="mb-1">hello@curio.com</p><p class="mb-1">corporate@curio.com</p><p class="text-muted text-sm">Replies within 24 hours</p></div></div>
+        <div class="container">
+            <div class="text-center section-title reveal">
+                <span class="ct-eyebrow mb-3">The Atelier Is Open</span>
+                <h2>Ways To Reach Us</h2>
+            </div>
+            <div class="grid grid-3 mt-4">
+<div class="ct-card reveal"><div class="card-body"><div class="ct-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3 class="mb-2">Visit Us</h3><p class="mb-1"><a href="https://maps.google.com/?q=12+Rosewood+Lane,+Chennai+600+001" target="_blank" rel="noopener" style="color: inherit;">12 Rosewood Lane, Chennai 600 001</a></p><p class="mb-1"><a href="https://maps.google.com/?q=12+Rosewood+Lane,+Chennai+600+001" target="_blank" rel="noopener" style="color: inherit;">Boutique 4, Ground Floor</a></p><p class="text-muted text-sm">Mon–Sat · 10am – 8pm</p></div></div>
+            <div class="ct-card reveal"><div class="card-body"><div class="ct-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><h3 class="mb-2">Call Us</h3><p class="mb-1"><a href="tel:+919876543210" style="color: inherit;">+91 98765 43210</a></p><p class="mb-1"><a href="tel:+919876543211" style="color: inherit;">+91 98765 43211</a></p><p class="text-muted text-sm">Concierge · 9am – 6pm IST</p></div></div>
+            <div class="ct-card reveal"><div class="card-body"><div class="ct-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><h3 class="mb-2">Email</h3><p class="mb-1"><a href="mailto:hello@curio.gifts" style="color: inherit;">hello@curio.gifts</a></p><p class="mb-1"><a href="mailto:corporate@curio.gifts" style="color: inherit;">corporate@curio.gifts</a></p><p class="text-muted text-sm">Replies within 24 hours</p></div></div>
+            </div>
         </div>
     </section>
 
     <!-- 3. Form Section -->
-    <section class="section" style="background: var(--bg-secondary);">
-        <div class="container grid grid-2 align-center">
-            <div class="reveal fade-left">
+    <section class="section ct-form-section">
+        <div class="container">
+            <div class="text-center section-title reveal">
+                <span class="ct-eyebrow mb-3">The Concierge</span>
                 <h2>Send a Message</h2>
-                <p class="text-muted mb-1">Tell us about the occasion, the person, and your budget — we will suggest something they will never forget.</p>
-                <form class="mt-4">
-                    <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-control" placeholder="Your full name"></div>
-                    <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="you@example.com"></div>
-                    <div class="form-group"><label class="form-label">Subject</label><select class="form-control"><option>Personal Gift</option><option>Wedding Gifts</option><option>Corporate / Bulk Order</option><option>Engraving Enquiry</option><option>Something Else</option></select></div>
-                    <div class="form-group"><label class="form-label">Message</label><textarea class="form-control" rows="5" placeholder="Tell us about your gift..."></textarea></div>
-                    <div class="flex gap-sm align-center">
-                        <button class="btn btn-primary">Submit</button>
-                        <span class="text-muted text-sm">We never share your details.</span>
-                    </div>
-                </form>
+                <p class="subtitle">Tell us about the occasion, the person, and your budget — we will suggest something they will never forget.</p>
             </div>
-            <div class="reveal fade-right" style="height: 100%; min-height: 400px; border-radius: var(--radius-lg); overflow: hidden;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="grid grid-2 align-center mt-4" style="gap: 3rem;">
+                <div class="reveal fade-left">
+                    <div class="ct-frame">
+                        <div class="ct-form-card">
+                            <div class="ct-form-head">
+                                <h3>The Concierge</h3>
+                                <span class="ct-reply"><span class="dot"></span> Replies within 48 hours</span>
+                            </div>
+                            <form class="ct-form">
+                                <div class="row2">
+                                    <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-control" placeholder="Your full name"></div>
+                                    <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="you@example.com"></div>
+                                </div>
+                                <div class="row2">
+                                    <div class="form-group"><label class="form-label">Occasion</label><select class="form-control"><option>Personal Gift</option><option>Wedding Gifts</option><option>Corporate / Bulk Order</option><option>Engraving Enquiry</option><option>Something Else</option></select></div>
+                                    <div class="form-group"><label class="form-label">Budget</label><select class="form-control"><option>Under $50</option><option>$50 – $150</option><option>$150 – $500</option><option>$500+</option><option>Flexible</option></select></div>
+                                </div>
+                                <div class="form-group"><label class="form-label">Message</label><textarea class="form-control" rows="5" placeholder="Tell us about the person, the occasion, and your wish..."></textarea></div>
+                                <div class="flex gap-sm align-center">
+                                    <button class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Send Message</button>
+                                    <span class="ct-privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Your details stay private</span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal fade-right">
+                    <div class="ct-map-wrap">
+                        <div class="ct-frame" style="padding: 8px; background: var(--color-white);">
+                            <iframe src="https://maps.google.com/maps?q=12%20Rosewood%20Lane%2C%20Chennai%20600%20001&t=m&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="ct-map-badge">
+                            <div class="b-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+                            <div><strong>The Boutique</strong><small>12 Rosewood Lane · Chennai</small></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 4. Bulk Enquiry -->
-    <section class="section" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
-        <div class="container text-center reveal">
-            <h2 style="color: var(--color-white);">Corporate & Bulk Gifting</h2>
-            <p class="subtitle mb-3" style="color: rgba(255,255,255,0.85);">Employee milestones, client appreciation, conference swag — we design, engrave and deliver gift programmes for teams of 10 to 10,000.</p>
-            <p class="mb-4" style="color: rgba(255,255,255,0.7);">Bespoke pricing, seasonal ranges and dedicated account managers. Share your requirement and receive a curated proposal within 48 hours.</p>
+    <section class="section ct-cta">
+        <div class="container reveal" style="position: relative; z-index: 2;">
+            <span class="ct-eyebrow mb-4">For Business</span>
+            <h2 class="mb-2">Corporate & Bulk Gifting</h2>
+            <div class="ct-divider mb-4"><span></span></div>
+            <p class="subtitle mb-3" style="margin-left: auto; margin-right: auto;">Employee milestones, client appreciation, conference swag — we design, engrave and deliver gift programmes for teams of 10 to 10,000.</p>
+            <p class="mb-4" style="max-width: 640px; margin-left: auto; margin-right: auto;">Bespoke pricing, seasonal ranges and dedicated account managers. Share your requirement and receive a curated proposal within 48 hours.</p>
             <div class="flex gap-sm justify-center">
-                <a href="#" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Corporate Enquiry</a>
-                <a href="mailto:corporate@curio.com" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255,255,255,0.6);">corporate@curio.com</a>
+                <a href="mailto:corporate@curio.gifts" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Corporate Enquiry</a>
+                <a href="mailto:corporate@curio.gifts" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255,255,255,0.6);">corporate@curio.gifts</a>
             </div>
         </div>
     </section>
@@ -112,30 +546,41 @@
 
     <!-- 6. FAQ Snippet -->
     <section class="section">
-        <div class="container reveal">
-            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-            <div class="grid grid-2" style="gap: 2rem;">
-                <div>
-                    <h4 class="text-accent mb-1">Do you offer same-day delivery?</h4>
-                    <p class="text-muted text-sm mb-3">Yes — for orders placed before 2pm within the city, delivered same evening in our signature gift wrap, free.</p>
-                    <h4 class="text-accent mb-1">Can I add engraving after checkout?</h4>
-                    <p class="text-muted text-sm mb-3">Absolutely. Contact us with your order number and the message, and our atelier will engrave it before dispatch.</p>
-                    <h4 class="text-accent mb-1">Do you ship internationally?</h4>
-                    <p class="text-muted text-sm">We ship to 40+ countries with tracked, insured delivery. Duties are always calculated and shown before you pay.</p>
-                </div>
-                <div>
-                    <h4 class="text-accent mb-1">What is your returns policy?</h4>
-                    <p class="text-muted text-sm mb-3">Unwrapped items can be returned within 30 days for a full refund. Engraved pieces are made to order and therefore final.</p>
-                    <h4 class="text-accent mb-1">Can you wrap gifts and hide prices?</h4>
-                    <p class="text-muted text-sm mb-3">Every order is gift-wrapped by default with a handwritten card, and the invoice is always sent separately.</p>
-                    <h4 class="text-accent mb-1">Do you offer a gift concierge?</h4>
-                    <p class="text-muted text-sm">Yes — our curators can build a complete gift on your behalf from budget to unwrapping. Email us and we will take it from there.</p>
-                </div>
+        <div class="container">
+            <div class="text-center section-title reveal">
+                <span class="ct-eyebrow mb-3">Good To Know</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="ct-faq mt-4">
+                <details class="ct-faq-item reveal" open>
+                    <summary>Do you offer same-day delivery?</summary>
+                    <div class="ct-faq-a">Yes — for orders placed before 2pm within the city, delivered same evening in our signature gift wrap, free.</div>
+                </details>
+                <details class="ct-faq-item reveal">
+                    <summary>Can I add engraving after checkout?</summary>
+                    <div class="ct-faq-a">Absolutely. Contact us with your order number and the message, and our atelier will engrave it before dispatch.</div>
+                </details>
+                <details class="ct-faq-item reveal">
+                    <summary>Do you ship internationally?</summary>
+                    <div class="ct-faq-a">We ship to 40+ countries with tracked, insured delivery. Duties are always calculated and shown before you pay.</div>
+                </details>
+                <details class="ct-faq-item reveal">
+                    <summary>What is your returns policy?</summary>
+                    <div class="ct-faq-a">Unwrapped items can be returned within 30 days for a full refund. Engraved pieces are made to order and therefore final.</div>
+                </details>
+                <details class="ct-faq-item reveal">
+                    <summary>Can you wrap gifts and hide prices?</summary>
+                    <div class="ct-faq-a">Every order is gift-wrapped by default with a handwritten card, and the invoice is always sent separately.</div>
+                </details>
+                <details class="ct-faq-item reveal">
+                    <summary>Do you offer a gift concierge?</summary>
+                    <div class="ct-faq-a">Yes — our curators can build a complete gift on your behalf from budget to unwrapping. Email us and we will take it from there.</div>
+                </details>
             </div>
         </div>
     </section>
 
-                <footer class="footer" style="position: relative;">
+                                                                                                <footer class="footer" style="position: relative;">
         <div class="footer-separator"></div>
         <div class="footer-container">
             <div class="grid grid-4" style="align-items: flex-start; gap: 3rem; margin-bottom: 3rem;">
@@ -149,21 +594,11 @@
                     </a>
                     <p class="footer-desc">Curio's most exclusive destination for personalized gifts and fine souvenirs. A curated sanctuary where every piece tells an extraordinary story.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="Facebook">fb</a>
-                        <a href="#" aria-label="Twitter">tw</a>
-                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                     </div>
-                </div>
-                <div>
-                    <h4>Collections</h4>
-                    <ul class="footer-links">
-                        <li><a href="shop.html" class="footer-link">Luxury Gifts</a></li>
-                        <li><a href="shop.html" class="footer-link">Wedding Sets</a></li>
-                        <li><a href="shop.html" class="footer-link">Corporate</a></li>
-                        <li><a href="shop.html" class="footer-link">Personalized</a></li>
-                        <li><a href="services.html" class="footer-link">Gift Wrapping</a></li>
-                    </ul>
                 </div>
                 <div>
                     <h4>Maison</h4>
@@ -177,6 +612,21 @@
                     </ul>
                 </div>
                 <div>
+                    <h4>Visit The Atelier</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <a href="https://maps.google.com/?q=12+Rosewood+Lane,+Chennai+600+001" target="_blank" rel="noopener" style="color: #a0a0a0; text-decoration: none;">12 Rosewood Lane, Chennai 600 001</a>
+                        </li>
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span style="color: #a0a0a0;">Mon – Sat, 10am – 8pm</span>
+                        </li>
+                        <li><a href="tel:+919876543210" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>+91 98765 43210</a></li>
+                        <li><a href="mailto:hello@curio.gifts" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>hello@curio.gifts</a></li>
+                    </ul>
+                </div>
+                <div>
                     <h4>The Private List</h4>
                     <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; color: #a0a0a0;">Receive exclusive previews, private sale invitations, and gifting insights before anyone else.</p>
                     <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
@@ -185,7 +635,7 @@
                     </form>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div>&copy; 2026 Curio. All rights reserved. Established 2010.</div>
                 <div class="footer-bottom-links">

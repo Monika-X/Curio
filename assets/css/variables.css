@@ -65,3 +65,14 @@
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
   --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
+
+@media (max-width: 992px) {
+  :root {
+    --nav-height: 72px;
+  }
+}
+@media (max-width: 576px) {
+  :root {
+    --nav-height: 60px;
+  }
+}

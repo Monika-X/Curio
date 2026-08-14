@@ -14,6 +14,343 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <style>
+        /* ===== Home 2: The Curio Maison (Black & Gold) ===== */
+        .h2-hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 85% 15%, rgba(212, 175, 55, 0.16), transparent 50%),
+                radial-gradient(ellipse at 10% 90%, rgba(212, 175, 55, 0.08), transparent 45%),
+                linear-gradient(160deg, #0e0908 0%, #1c1210 55%, #2a1a12 100%);
+            padding: 110px 0;
+        }
+
+        .h2-hero h1 { color: #f6ead2; }
+        .h2-hero h1 .gold {
+            font-style: italic;
+            background: linear-gradient(120deg, #f5d97e 0%, var(--color-accent) 45%, #f9e9b3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .h2-hero .subtitle { color: rgba(246, 234, 210, 0.75); }
+
+        .h2-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .h2-frame {
+            position: relative;
+            padding: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .h2-frame::before {
+            content: '';
+            position: absolute;
+            inset: 7px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            pointer-events: none;
+        }
+        .h2-frame img {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .h2-frame-corner {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-color: var(--color-accent);
+            border-style: solid;
+            z-index: 2;
+        }
+        .h2-frame-corner.tl { top: -3px; left: -3px; border-width: 2px 0 0 2px; }
+        .h2-frame-corner.tr { top: -3px; right: -3px; border-width: 2px 2px 0 0; }
+        .h2-frame-corner.bl { bottom: -3px; left: -3px; border-width: 0 0 2px 2px; }
+        .h2-frame-corner.br { bottom: -3px; right: -3px; border-width: 0 2px 2px 0; }
+
+        .h2-badge {
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-md);
+            background: #17100d;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+            animation: h2Float 5s ease-in-out infinite;
+        }
+        .h2-badge .h2-seal {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-accent), #8a6d1f);
+            color: #17100d;
+            flex-shrink: 0;
+        }
+        .h2-badge strong { color: #f6ead2; font-size: 0.9rem; display: block; line-height: 1.3; }
+        .h2-badge small { color: rgba(246, 234, 210, 0.6); font-size: 0.72rem; }
+
+        @keyframes h2Float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .h2-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-top: 2.5rem;
+        }
+        .h2-stat { padding: 0.4rem 2rem 0.4rem 0; }
+        .h2-stat + .h2-stat { padding-left: 2rem; border-left: 1px solid rgba(212, 175, 55, 0.3); }
+        .h2-stat h3 { color: var(--color-accent); font-size: 2rem; margin-bottom: 0.1rem; }
+        .h2-stat span { color: rgba(246, 234, 210, 0.65); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        .h2-marquee {
+            background: linear-gradient(90deg, #d4af37, #f0d67e 25%, #d4af37 50%, #f0d67e 75%, #d4af37);
+            overflow: hidden;
+            padding: 0.9rem 0;
+        }
+        .h2-marquee-track {
+            display: flex;
+            gap: 3rem;
+            white-space: nowrap;
+            width: max-content;
+            animation: h2Marquee 28s linear infinite;
+        }
+        .h2-marquee-track span {
+            color: #1a1008;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .h2-marquee-track span::after { content: '✦'; color: #1a1008; }
+        @keyframes h2Marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .h2-dark-section {
+            background: #120c0a;
+            color: #f6ead2;
+        }
+        .h2-dark-section .section-title h2 { color: #f6ead2; }
+        .h2-dark-section .subtitle { color: rgba(246, 234, 210, 0.7); }
+
+        .h2-feature {
+            background: #1b130f;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.75rem;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        .h2-feature::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            opacity: 0.5;
+        }
+        .h2-feature:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
+        }
+        .h2-feature .h2-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-style: italic;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(212, 175, 55, 0.6);
+            line-height: 1;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .h2-feature h3 { color: #f6ead2; font-size: 1.4rem; margin-bottom: 0.6rem; }
+        .h2-feature p { color: rgba(246, 234, 210, 0.65); font-size: 0.9rem; margin-bottom: 0; }
+
+        .h2-banner {
+            position: relative;
+            background-image: linear-gradient(rgba(10, 6, 5, 0.72), rgba(10, 6, 5, 0.72)), url('https://i.pinimg.com/736x/7b/f0/de/7bf0de1e76ce5ad0069516c4a3a1cc68.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 130px 0;
+        }
+        .h2-banner h2 { color: #f6ead2; }
+
+        .h2-step {
+            text-align: center;
+            position: relative;
+            padding: 0 1rem;
+        }
+        .h2-step-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 1.25rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1b130f;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: var(--color-accent);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+            transition: all var(--transition-normal);
+        }
+        .h2-step:hover .h2-step-icon {
+            background: var(--color-accent);
+            color: #17100d;
+        }
+        .h2-step h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .h2-step p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0; }
+
+        .h2-bestseller {
+            background: #1b130f;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        .h2-bestseller:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
+        }
+        .h2-bestseller .h2-price {
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .h2-bestseller h3 { color: #f6ead2; }
+
+        .h2-quote {
+            position: relative;
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+        .h2-quote-mark {
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            line-height: 0.6;
+            color: var(--color-accent);
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .h2-quote blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-style: italic;
+            color: #f6ead2;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+        .h2-quote cite {
+            font-style: normal;
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .h2-cta {
+            background: linear-gradient(135deg, #d4af37 0%, #a8862a 55%, #d4af37 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .h2-cta h2 { color: #1a1008; }
+        .h2-cta .subtitle { color: rgba(26, 16, 8, 0.8); }
+        .h2-cta .btn-dark {
+            background: #1a1008;
+            color: #f6ead2;
+            border-color: #1a1008;
+        }
+        .h2-cta .btn-dark:hover { background: #2b1c10; }
+        .h2-cta .btn-ghost {
+            background: transparent;
+            color: #1a1008;
+            border-color: rgba(26, 16, 8, 0.6);
+        }
+
+        @media (max-width: 1024px) {
+            .h2-hero .container { gap: 3rem; }
+        }
+
+        @media (max-width: 992px) {
+            .h2-frame img { height: 360px; }
+            .h2-stats { justify-content: center; }
+            .h2-stat { padding: 0.4rem 1.2rem; }
+            .h2-stat + .h2-stat { padding-left: 1.2rem; }
+            .h2-banner { background-attachment: scroll; }
+        }
+
+        @media (max-width: 768px) {
+            .h2-hero { padding: 80px 0; }
+            .h2-badge { position: static; display: inline-flex; margin: 1rem 0.5rem 0 0; }
+            .h2-frame img { height: 300px; }
+            .h2-feature { padding: 1.75rem 1.5rem; }
+            .h2-banner { padding: 90px 0; }
+            .h2-cta .newsletter-form { max-width: 100%; }
+        }
+
+        @media (max-width: 640px) {
+            .h2-hero h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+            .h2-stat h3 { font-size: 1.6rem; }
+            .h2-quote-mark { font-size: 4.5rem; }
+            .h2-marquee-track { gap: 2rem; }
+            .h2-marquee-track span { letter-spacing: 2px; }
+        }
+
+        @media (max-width: 480px) {
+            .h2-hero { padding: 60px 0; }
+            .h2-eyebrow { font-size: 0.68rem; letter-spacing: 1.2px; padding: 0.4rem 0.9rem; }
+            .h2-frame { padding: 12px; }
+            .h2-frame::before { inset: 5px; }
+            .h2-frame img { height: 240px; }
+            .h2-stats { justify-content: center; }
+            .h2-stat { padding: 0.4rem 0.9rem; }
+            .h2-stat + .h2-stat { padding-left: 0.9rem; }
+            .h2-stat h3 { font-size: 1.35rem; }
+            .h2-badge { padding: 0.6rem 0.9rem; }
+            .h2-badge .h2-seal { width: 34px; height: 34px; }
+            .h2-banner { padding: 70px 0; }
+            .h2-feature .h2-num { font-size: 2.4rem; }
+            .h2-cta .flex { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -38,7 +375,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
                 <button class="icon-btn" id="dir-toggle" aria-label="Toggle RTL">RTL</button>
-                <a href="shop.html" class="btn btn-primary" style="text-decoration: none;">Shop Now</a>
+                <a href="contact.html" class="btn btn-primary" style="text-decoration: none;">Book Now</a>
                 <button class="icon-btn hamburger" id="menu-toggle" aria-label="Menu" aria-expanded="false">
                     <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                     <svg class="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -52,105 +389,147 @@
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+            <a href="contact.html" class="btn btn-primary mobile-book">Book Now</a>
         </div>
     </nav>
 
 
-    <!-- Section 1: Hero Alternate -->
-    <section class="section" style="padding: 100px 0; background: linear-gradient(135deg, var(--bg-secondary), var(--color-white));">
-        <div class="container grid grid-2 align-center">
+    <!-- Section 1: Hero -->
+    <section class="h2-hero">
+        <div class="container grid grid-2 align-center" style="gap: 4rem;">
             <div class="reveal fade-left">
-                <h6 class="text-accent mb-2">Curio Atelier · Est. 2010</h6>
-                <h1 class="mb-3">Gifts Crafted<br>With Heart & Gold</h1>
-                <p class="subtitle mb-4">A second home for gifting — explore seasonal drops, corporate collections, and bestsellers loved by thousands. Every order is wrapped by hand, engraved on request, and delivered with a handwritten card.</p>
+                <span class="h2-eyebrow mb-4"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span> The Curio Maison · Est. 2010</span>
+                <h1 class="mb-3">Gifts Crafted<br>With <span class="gold">Heart & Gold</span></h1>
+                <p class="subtitle mb-4">A private world of gifting — seasonal drops, corporate commissions and bestsellers loved by thousands. Every order is wrapped by hand, engraved on request, and delivered with a handwritten card in champagne-gold wax.</p>
                 <div class="flex gap-sm">
-                    <a href="shop.html" class="btn btn-primary">Browse Bestsellers</a>
-                    <a href="services.html" class="btn btn-outline">Explore Services</a>
+                    <a href="services.html" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent); color: #17100d;">Explore Services</a>
+                    <a href="about.html" class="btn btn-outline" style="color: #f6ead2; border-color: rgba(246,234,210,0.5);">Our Story</a>
+                </div>
+                <div class="h2-stats reveal">
+                    <div class="h2-stat"><h3>12,000+</h3><span>Gifts Delivered</span></div>
+                    <div class="h2-stat"><h3>150+</h3><span>Partner Artisans</span></div>
+                    <div class="h2-stat"><h3>40+</h3><span>Countries Served</span></div>
                 </div>
             </div>
-            <div class="reveal fade-right" style="height: 420px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-premium);">
-                <img src="../assets/images/products/gift-still.jpg" alt="Curio collection" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="reveal fade-right">
+                <div class="h2-frame">
+                    <span class="h2-frame-corner tl"></span><span class="h2-frame-corner tr"></span><span class="h2-frame-corner bl"></span><span class="h2-frame-corner br"></span>
+                    <img src="https://i.pinimg.com/736x/95/21/1c/95211c86b36e999bcc00a7de384a7f57.jpg" alt="The Curio collection">
+                </div>
+                <div class="h2-badge" style="left: -2rem; bottom: -1.5rem;">
+                    <div class="h2-seal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div>
+                    <div><strong>Curator's Choice</strong><small>Hand-picked this season</small></div>
+                </div>
+                <div class="h2-badge" style="right: -1.5rem; top: 1rem; animation-delay: 2.4s;">
+                    <div class="h2-seal"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg></div>
+                    <div><strong>4.9 / 5</strong><small>From 3,200+ clients</small></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Corporate Gifts -->
-    <section class="section bg-secondary" style="background: var(--bg-secondary);">
+    <!-- Section 2: Marquee -->
+    <div class="h2-marquee">
+        <div class="h2-marquee-track">
+            <span>Signature Silk Wrapping</span><span>Champagne-Gold Wax Seals</span><span>Handwritten Notes</span><span>Free Laser Engraving</span><span>Handmade By 150+ Artisans</span><span>Signature Silk Wrapping</span><span>Champagne-Gold Wax Seals</span><span>Handwritten Notes</span><span>Free Laser Engraving</span><span>Handmade By 150+ Artisans</span>
+        </div>
+    </div>
+
+    <!-- Section 3: The Curio Difference -->
+    <section class="section h2-dark-section">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">For Business</h6>
-                <h2>Corporate Gifts, Perfected</h2>
-                <p class="subtitle">From boardroom milestones to festival hampers for your whole team — we handle everything from logo engraving to door-step delivery.</p>
+                <h6 class="text-accent">Why Curio</h6>
+                <h2>The Curio Difference</h2>
+                <p class="subtitle">Four quiet obsessions that have guided every order since our first bow in 2010.</p>
             </div>
-            <div class="grid grid-4 mt-4 text-center">
-                <div class="card reveal"><div class="card-body"><h3>Tiered Pricing</h3><p class="text-muted text-sm">From 25 units to 10,000+, with dedicated account managers.</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>Branded Wrapping</h3><p class="text-muted text-sm">Custom boxes, silk ribbons, and embossed cards in your colours.</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>Engraved Logos</h3><p class="text-muted text-sm">Laser-engraved metal, wood and glass in our in-house studio.</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>Global Delivery</h3><p class="text-muted text-sm">Individually addressed, tracked and insured to 40+ countries.</p></div></div>
-            </div>
-            <div class="text-center mt-4 reveal">
-                <a href="contact.html" class="btn btn-outline">Request a Corporate Quote</a>
+            <div class="grid grid-4 mt-4" style="gap: 1.5rem;">
+                <div class="h2-feature reveal"><span class="h2-num">01</span><h3>Hand-Selected</h3><p>Every piece is chosen in person — from porcelain painters in Florence to silk weavers in Varanasi.</p></div>
+                <div class="h2-feature reveal" style="transition-delay: 0.1s;"><span class="h2-num">02</span><h3>Made Personal</h3><p>Laser engraving, monograms and gilded calligraphy performed in our in-house studio.</p></div>
+                <div class="h2-feature reveal" style="transition-delay: 0.2s;"><span class="h2-num">03</span><h3>Wrapped With Ritual</h3><p>Silk ribbon, wax seal and a handwritten card — the unwrapping is part of the gift.</p></div>
+                <div class="h2-feature reveal" style="transition-delay: 0.3s;"><span class="h2-num">04</span><h3>Delivered With Care</h3><p>Tracked, insured and beautifully presented to more than forty countries.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Seasonal -->
-    <section class="section">
+    <!-- Section 4: Atelier Banner -->
+    <section class="h2-banner">
+        <div class="container text-center reveal">
+            <span class="h2-eyebrow mb-4"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span> Inside The Atelier</span>
+            <h2 class="mb-3">Every Box Leaves Our Hands, Not A Machine</h2>
+            <p class="subtitle mb-4" style="color: rgba(246,234,210,0.75);">From the first cut of silk to the final press of the seal — watch the journey of a Curio order.</p>
+            <a href="about.html" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent); color: #17100d;">Step Inside The Studio</a>
+        </div>
+    </section>
+
+    <!-- Section 5: Craftsmanship Steps -->
+    <section class="section h2-dark-section">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">Limited Drops</h6>
-                <h2>Seasonal Collections</h2>
+                <h6 class="text-accent">The Ritual</h6>
+                <h2>From Atelier To Doorstep</h2>
             </div>
             <div class="grid grid-3 mt-4">
-                <div class="card reveal fade-left"><div class="card-img-wrapper" style="height: 220px; overflow: hidden;"><img src="../assets/images/products/birthday-balloons.jpg" alt="Spring collection" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3>Spring Blossoms</h3><p class="text-muted text-sm">Pastel florals and botanical keepsakes, available Mar–May.</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper" style="height: 220px; overflow: hidden;"><img src="../assets/images/products/diya-set.jpg" alt="Festival collection" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3>Festival Season</h3><p class="text-muted text-sm">Diwali lights, gift hampers and festive decor, available Sep–Nov.</p></div></div>
-                <div class="card reveal fade-right"><div class="card-img-wrapper" style="height: 220px; overflow: hidden;"><img src="../assets/images/products/candle-set.jpg" alt="Winter collection" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3>Winter Wonderland</h3><p class="text-muted text-sm">Velvet, gold and shimmer — holiday luxuries, available Dec–Feb.</p></div></div>
+                <div class="h2-step reveal">
+                    <div class="h2-step-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+                    <h3>01 · Curate</h3>
+                    <p>Our curators match the person, the occasion and the budget to the perfect piece.</p>
+                </div>
+                <div class="h2-step reveal" style="transition-delay: 0.15s;">
+                    <div class="h2-step-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg></div>
+                    <h3>02 · Personalise</h3>
+                    <p>Engraved names, dates and messages — every detail set by hand in our studio.</p>
+                </div>
+                <div class="h2-step reveal" style="transition-delay: 0.3s;">
+                    <div class="h2-step-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+                    <h3>03 · Present</h3>
+                    <p>Silk-wrapped, wax-sealed and delivered with a note written in our hand.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Bestsellers -->
-    <section class="section bg-secondary" style="background: var(--bg-secondary);">
+    <!-- Section 6: Bestsellers -->
+    <section class="section h2-dark-section" style="padding-top: 0;">
         <div class="container">
             <div class="text-center section-title reveal">
                 <h6 class="text-accent">Loved By Thousands</h6>
                 <h2>This Season's Bestsellers</h2>
             </div>
-            <div class="grid grid-4 mt-4">
-                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/gift-box-birthday.jpg" alt="Surprise Crate" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3 class="card-title">Surprise Crate</h3><p class="text-muted text-sm">$65.00 · Birthday</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/gift-box-wedding.jpg" alt="Keepsake Gift Box" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3 class="card-title">Keepsake Gift Box</h3><p class="text-muted text-sm">$120.00 · Wedding</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/gold-pen.jpg" alt="Gold Plated Pen Set" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3 class="card-title">Gold Plated Pen Set</h3><p class="text-muted text-sm">$120.00 · Corporate</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper" style="height: 200px; overflow: hidden;"><img src="../assets/images/products/silk-scarf.jpg" alt="Silk Scarf Box" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="card-body text-center"><h3 class="card-title">Silk Scarf Box</h3><p class="text-muted text-sm">$95.00 · Luxury</p></div></div>
-            </div>
-            <div class="text-center mt-4 reveal">
-                <a href="shop.html" class="btn btn-primary">Shop All Products</a>
+            <div class="grid grid-4 mt-4" style="gap: 1.5rem;">
+                <div class="h2-bestseller reveal"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/1200x/8b/aa/cc/8baacc4bf9698c95ccfa8eb99a43501d.jpg" alt="Surprise Crate" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Surprise Crate</h3><p class="h2-price">$65.00 · Birthday</p></div></div>
+                <div class="h2-bestseller reveal" style="transition-delay: 0.1s;"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/1200x/7b/f0/de/7bf0de1e76ce5ad0069516c4a3a1cc68.jpg" alt="Keepsake Gift Box" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Keepsake Gift Box</h3><p class="h2-price">$120.00 · Wedding</p></div></div>
+                <div class="h2-bestseller reveal" style="transition-delay: 0.2s;"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/736x/69/e9/46/69e9461098311d585176930e76f36d7e.jpg" alt="Gold Plated Pen Set" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Gold Plated Pen Set</h3><p class="h2-price">$120.00 · Corporate</p></div></div>
+                <div class="h2-bestseller reveal" style="transition-delay: 0.3s;"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/736x/de/c8/17/dec81790834f3b22177b47353482cf21.jpg" alt="Silk Scarf Box" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Silk Scarf Box</h3><p class="h2-price">$95.00 · Luxury</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Services Banner -->
-    <section class="section" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
+    <!-- Section 7: Quote -->
+    <section class="section h2-dark-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="h2-quote reveal">
+                <span class="h2-quote-mark">&ldquo;</span>
+                <blockquote>We do not sell gifts. We wrap moments — the pause, the surprise, the gasp — and send them to people you love.</blockquote>
+                <cite>Elena Rose · Founder, Curio</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: CTA + Newsletter -->
+    <section class="section h2-cta">
         <div class="container text-center reveal">
-            <h2 style="color: var(--color-white);">Make Every Gift Unforgettable</h2>
-            <p class="subtitle mb-4" style="color: rgba(255,255,255,0.85);">Free engraving, signature silk wrapping, and handwritten cards — included with every order from the Curio atelier.</p>
+            <h2 class="mb-2">Make Every Gift Unforgettable</h2>
+            <p class="subtitle mb-4">Free engraving, signature silk wrapping, and handwritten cards — included with every order from the Curio atelier.</p>
             <div class="flex gap-sm justify-center">
-                <a href="services.html" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Our Services</a>
-                <a href="about.html" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255,255,255,0.6);">Our Story</a>
+                <a href="services.html" class="btn btn-primary btn-dark">Our Services</a>
+                <a href="about.html" class="btn btn-outline btn-ghost">Our Story</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Section 6: Newsletter -->
-    <section class="section">
-        <div class="container text-center reveal">
-            <h6 class="text-accent mb-2">The Private List</h6>
-            <h2>Be First To Know</h2>
-            <p class="subtitle mb-4" style="max-width: 560px; margin-left: auto; margin-right: auto;">Join 25,000+ gift-givers receiving early access to seasonal drops, private sale invitations, and monthly gifting guides.</p>
-            <form class="newsletter-form" style="max-width: 460px; margin: 0 auto;" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
-                <input type="email" placeholder="Your email" required>
-                <button type="submit" class="btn btn-primary">Join</button>
+            <p class="text-sm mt-4" style="color: rgba(26,16,8,0.7);">Join The Private List — one letter a month, never more.</p>
+            <form class="newsletter-form" style="max-width: 460px; margin: 1rem auto 0;" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
+                <input type="email" placeholder="Your email" required style="background: rgba(255,255,255,0.35); color: #1a1008;">
+                <button type="submit" class="btn btn-primary btn-dark">Join</button>
             </form>
-            <p class="text-sm text-muted mt-3">One email a month. Unsubscribe anytime.</p>
         </div>
     </section>
 
@@ -168,21 +547,11 @@
                     </a>
                     <p class="footer-desc">Curio's most exclusive destination for personalized gifts and fine souvenirs. A curated sanctuary where every piece tells an extraordinary story.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="Facebook">fb</a>
-                        <a href="#" aria-label="Twitter">tw</a>
-                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                     </div>
-                </div>
-                <div>
-                    <h4>Collections</h4>
-                    <ul class="footer-links">
-                        <li><a href="shop.html" class="footer-link">Luxury Gifts</a></li>
-                        <li><a href="shop.html" class="footer-link">Wedding Sets</a></li>
-                        <li><a href="shop.html" class="footer-link">Corporate</a></li>
-                        <li><a href="shop.html" class="footer-link">Personalized</a></li>
-                        <li><a href="services.html" class="footer-link">Gift Wrapping</a></li>
-                    </ul>
                 </div>
                 <div>
                     <h4>Maison</h4>
@@ -193,6 +562,21 @@
                         <li><a href="services.html" class="footer-link">Services</a></li>
                         <li><a href="blog.html" class="footer-link">Journal</a></li>
                         <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Visit The Atelier</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <a href="https://maps.google.com/?q=12+Rosewood+Lane,+Chennai+600+001" target="_blank" rel="noopener" style="color: #a0a0a0; text-decoration: none;">12 Rosewood Lane, Chennai 600 001</a>
+                        </li>
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span style="color: #a0a0a0;">Mon – Sat, 10am – 8pm</span>
+                        </li>
+                        <li><a href="tel:+919876543210" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>+91 98765 43210</a></li>
+                        <li><a href="mailto:hello@curio.gifts" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>hello@curio.gifts</a></li>
                     </ul>
                 </div>
                 <div>

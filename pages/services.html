@@ -14,6 +14,365 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <style>
+        /* ===== Services: Signature Wrapping (premium, lighter than Home 2) ===== */
+        .sv-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.15rem;
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: normal;
+            max-width: 100%;
+        }
+
+        .sv-eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            .sv-eyebrow {
+                font-size: 0.68rem;
+                letter-spacing: 1.2px;
+                padding: 0.4rem 0.9rem;
+                gap: 0.4rem;
+                line-height: 1.5;
+            }
+        }
+
+        .sv-dark {
+            background:
+                radial-gradient(ellipse at 15% 0%, rgba(212, 175, 55, 0.14), transparent 50%),
+                radial-gradient(ellipse at 90% 100%, rgba(212, 175, 55, 0.1), transparent 45%),
+                linear-gradient(135deg, #3a1a24 0%, var(--color-primary) 60%, #4a1f2c 100%);
+            color: var(--color-white);
+        }
+
+        .section-title .sv-eyebrow {
+            display: flex;
+            width: fit-content;
+            margin: 0 auto 1rem auto;
+        }
+
+        .sv-dark .section-title h2 { color: var(--color-white); }
+        .sv-dark .subtitle { color: rgba(255, 255, 255, 0.75); }
+
+        .sv-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            height: 100%;
+        }
+
+        .sv-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .sv-card-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .sv-card-img::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .sv-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .sv-card:hover .sv-card-img img { transform: scale(1.08); }
+
+        .sv-num {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5d97e 0%, var(--color-accent) 100%);
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sv-card-body { padding: 1.5rem 1.4rem 1.7rem; }
+        .sv-card-body h3 { color: var(--color-white); font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .sv-card-body p { color: rgba(255, 255, 255, 0.75); font-size: 0.9rem; margin-bottom: 0; }
+
+        .sv-tag {
+            display: inline-block;
+            margin-top: 0.9rem;
+            padding: 0.3rem 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--color-accent);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .sv-card-img { height: 180px; }
+        }
+
+        /* ===== Services: Other sections (premium, lighter than Home 2) ===== */
+        .svh-hero {
+            position: relative;
+            padding: 200px 0;
+            background-image: linear-gradient(rgba(26, 10, 10, 0.62), rgba(26, 10, 10, 0.78)), url('https://i.pinimg.com/736x/b8/5e/e8/b85ee83b0454956c8875309b1db8bc0c.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .svh-hero::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            pointer-events: none;
+        }
+
+        .svh-hero h1 { color: var(--color-white); }
+
+        .svh-hero .sv-eyebrow {
+            display: inline-flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .svh-hero h1 .text-gold-italic {
+            font-style: italic;
+            background: linear-gradient(120deg, #f5d97e 0%, var(--color-accent) 45%, #f9e9b3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .svh-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 0 auto 1.5rem;
+        }
+        .svh-divider::before,
+        .svh-divider::after {
+            content: '';
+            width: 70px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8));
+        }
+        .svh-divider::after { background: linear-gradient(90deg, rgba(212, 175, 55, 0.8), transparent); }
+        .svh-divider span {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
+        .svh-stats {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            margin-top: 3rem;
+        }
+
+        .svh-stat {
+            padding: 0.5rem 2.5rem;
+            text-align: center;
+        }
+
+        .svh-stat + .svh-stat {
+            border-left: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .svh-stat h3 {
+            color: var(--color-accent);
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .svh-stat span {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        @media (max-width: 640px) {
+            .svh-stat { padding: 0.5rem 1.2rem; }
+            .svh-stat h3 { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 768px) {
+            .svh-hero { padding: 130px 0; }
+            .svh-hero::before, .svh-cta::before { top: 12px; left: 12px; right: 12px; bottom: 12px; }
+            .svh-cta { padding: 80px 0; }
+        }
+
+        @media (max-width: 480px) {
+            .svh-hero { padding: 90px 0; }
+            .svh-stat { padding: 0.4rem 0.8rem; }
+            .svh-stat + .svh-stat { padding-left: 0.8rem; }
+            .svh-stat h3 { font-size: 1.2rem; }
+            .svh-stat span { font-size: 0.62rem; letter-spacing: 1px; }
+            .svl-ico { width: 46px; height: 46px; }
+            .svh-cta { padding: 60px 0; }
+        }
+
+        .svl-card {
+            position: relative;
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 100%;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .svl-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .svl-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 44px rgba(59, 37, 37, 0.14);
+        }
+
+        .svl-ico {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.14);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--color-accent);
+        }
+
+        .svl-card h3 { margin-bottom: 0.4rem; }
+
+        .svl-panel {
+            position: relative;
+            background: var(--color-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 100%;
+            transition: all var(--transition-normal);
+        }
+
+        .svl-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .svl-panel:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 44px rgba(59, 37, 37, 0.14);
+        }
+
+        .svl-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5d97e 0%, var(--color-accent) 100%);
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .svh-cta {
+            position: relative;
+            text-align: center;
+            background-image: linear-gradient(rgba(26, 10, 10, 0.78), rgba(26, 10, 10, 0.85)), url('https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=1600&auto=format');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .svh-cta::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            pointer-events: none;
+        }
+
+        .svh-cta .sv-eyebrow { margin-left: auto; margin-right: auto; }
+        .svh-cta h2 { color: var(--color-white); }
+        .svh-cta p { color: rgba(255, 255, 255, 0.8); }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -38,7 +397,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
                 <button class="icon-btn" id="dir-toggle" aria-label="Toggle RTL">RTL</button>
-                <a href="shop.html" class="btn btn-primary" style="text-decoration: none;">Shop Now</a>
+                <a href="contact.html" class="btn btn-primary" style="text-decoration: none;">Book Now</a>
                 <button class="icon-btn hamburger" id="menu-toggle" aria-label="Menu" aria-expanded="false">
                     <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                     <svg class="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -52,21 +411,32 @@
                 <a href="services.html" class="nav-link active">Services</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+            <a href="contact.html" class="btn btn-primary mobile-book">Book Now</a>
         </div>
     </nav>
 
 
-    <!-- Section 1: Header -->
-    <section class="section" style="padding: 100px 0;">
+    <!-- Section 1: Hero -->
+    <section class="svh-hero">
         <div class="container text-center reveal">
-            <h6 class="text-accent mb-2">Curio Atelier Services</h6>
-            <h1 class="mb-2">Beyond The Gift Itself</h1>
-            <p class="subtitle">Every service is performed in-house, by hand, by people who have been doing it for decades.</p>
+            <span class="sv-eyebrow mb-4"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span> Curio Atelier · Est. 2010</span>
+            <h1 class="mb-3">Beyond The <span class="text-gold-italic">Gift</span> Itself</h1>
+            <div class="svh-divider mb-4"><span></span></div>
+            <p class="subtitle" style="color: rgba(255,255,255,0.9); max-width: 640px; margin-left: auto; margin-right: auto;">Every service is performed in-house, by hand, by people who have been doing it for decades.</p>
+            <div class="flex gap-sm justify-center mt-4">
+                <a href="#engraving" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent); color: #17100d;">Explore Services</a>
+                <a href="contact.html" class="btn btn-outline" style="color: #f6ead2; border-color: rgba(246,234,210,0.5);">Book A Consultation</a>
+            </div>
+            <div class="svh-stats reveal">
+                <div class="svh-stat"><h3>12,000+</h3><span>Gifts Delivered</span></div>
+                <div class="svh-stat"><h3>4.9/5</h3><span>Client Rating</span></div>
+                <div class="svh-stat"><h3>40+</h3><span>Countries Served</span></div>
+            </div>
         </div>
     </section>
 
     <!-- Section 2: Engraving -->
-    <section class="section bg-secondary" style="background: var(--bg-secondary);">
+    <section id="engraving" class="section bg-secondary" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="text-center section-title reveal">
                 <h6 class="text-accent">Studio One</h6>
@@ -81,18 +451,48 @@
         </div>
     </section>
 
-    <!-- Section 3: Gift Wrapping -->
-    <section class="section">
+    <!-- Section 3: Signature Wrapping -->
+    <section class="section sv-dark">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">Studio Two</h6>
+                <span class="sv-eyebrow mb-3">Studio Two · The Finishing Ritual</span>
                 <h2>Signature Wrapping</h2>
-                <p class="subtitle">The first impression is the one they remember — make it unforgettable.</p>
+                <p class="subtitle">The first impression is the one they remember — make it unforgettable. Every parcel leaves our atelier tied by hand, never by machine.</p>
             </div>
             <div class="grid grid-3 mt-4">
-                <div class="card reveal"><div class="card-body"><h3>Curio Silk Wrap</h3><p class="text-muted text-sm mb-3">Hand-tied silk ribbons, champagne-gold wax seals and our embossed keepsake box. Free with every order.</p><p class="text-accent text-sm">Complimentary</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>Corporate Branding</h3><p class="text-muted text-sm mb-3">Custom-printed boxes, branded ribbons and note cards for bulk programmes of 25 units or more.</p><p class="text-accent text-sm">From $2.50 / unit</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>Handwritten Cards</h3><p class="text-muted text-sm mb-3">A calligraphed message on cotton paper, sealed with wax — written in your own words, in our hand.</p><p class="text-accent text-sm">Included</p></div></div>
+                <div class="sv-card reveal">
+                    <div class="sv-card-img">
+                        <img src="https://i.pinimg.com/736x/40/88/38/4088383cc0c0215c512043e9acba66e7.jpg" alt="Curio Silk Wrap">
+                        <span class="sv-num">01</span>
+                    </div>
+                    <div class="sv-card-body">
+                        <h3>Curio Silk Wrap</h3>
+                        <p>Hand-tied silk ribbons, champagne-gold wax seals and our embossed keepsake box, finished with a calligraphed cotton card.</p>
+                        <span class="sv-tag">Complimentary</span>
+                    </div>
+                </div>
+                <div class="sv-card reveal" style="transition-delay: 0.15s;">
+                    <div class="sv-card-img">
+                        <img src="https://i.pinimg.com/1200x/57/0e/dd/570eddd383bb65d27d9eca5fb84e809d.jpg" alt="Corporate Branding">
+                        <span class="sv-num">02</span>
+                    </div>
+                    <div class="sv-card-body">
+                        <h3>Corporate Branding</h3>
+                        <p>Custom-printed boxes, branded ribbons and note cards for bulk programmes of 25 units or more — your logo, our craft.</p>
+                        <span class="sv-tag">From $2.50 / unit</span>
+                    </div>
+                </div>
+                <div class="sv-card reveal" style="transition-delay: 0.3s;">
+                    <div class="sv-card-img">
+                        <img src="https://i.pinimg.com/736x/89/46/5a/89465ae402076da33bc52d4dafcb822f.jpg" alt="Handwritten Cards">
+                        <span class="sv-num">03</span>
+                    </div>
+                    <div class="sv-card-body">
+                        <h3>Handwritten Cards</h3>
+                        <p>A calligraphed message on cotton paper, sealed with champagne-gold wax — written in your own words, in our hand.</p>
+                        <span class="sv-tag">Included</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -101,31 +501,31 @@
     <section class="section bg-secondary" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">For Business</h6>
+                <span class="sv-eyebrow mb-3">For Business · Gifting At Scale</span>
                 <h2>Corporate Gifting Programmes</h2>
             </div>
             <div class="grid grid-2 mt-4 align-start">
-                <div class="card reveal fade-left">
+                <div class="svl-panel reveal fade-left">
                     <div class="card-body">
                         <h3>What We Manage</h3>
                         <ul class="mt-3">
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Seasonal hampers for teams of 10 to 10,000</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Client appreciation gifts with your logo engraved</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Milestone awards — years of service, retirements, new joins</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Direct-to-recipient delivery, worldwide, with gift notes</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Dedicated account manager and quarterly reporting</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">01</span> Seasonal hampers for teams of 10 to 10,000</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">02</span> Client appreciation gifts with your logo engraved</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">03</span> Milestone awards — years of service, retirements, new joins</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">04</span> Direct-to-recipient delivery, worldwide, with gift notes</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">05</span> Dedicated account manager and quarterly reporting</li>
                         </ul>
                     </div>
                 </div>
-                <div class="card reveal fade-right">
+                <div class="svl-panel reveal fade-right" style="transition-delay: 0.15s;">
                     <div class="card-body">
                         <h3>How It Works</h3>
                         <ul class="mt-3">
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Share your occasion, budget and recipient list</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Receive a curated proposal within 48 hours</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Approve samples, branding and wrapping</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> We produce, engrave, wrap and dispatch</li>
-                            <li class="flex align-center gap-sm mb-2"><span class="text-accent">&#10003;</span> Delivery confirmations and photos on request</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">01</span> Share your occasion, budget and recipient list</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">02</span> Receive a curated proposal within 48 hours</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">03</span> Approve samples, branding and wrapping</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">04</span> We produce, engrave, wrap and dispatch</li>
+                            <li class="flex align-center gap-sm mb-2"><span class="svl-num">05</span> Delivery confirmations and photos on request</li>
                         </ul>
                     </div>
                 </div>
@@ -140,26 +540,48 @@
     <section class="section">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">From Our Hands To Theirs</h6>
+                <span class="sv-eyebrow mb-3">From Our Hands To Theirs</span>
                 <h2>Delivery Options</h2>
                 <p class="subtitle">Tracked, insured and always beautifully presented — however fast you need it.</p>
             </div>
             <div class="grid grid-3 mt-4">
-                <div class="card reveal"><div class="card-body"><h3>Same-Day</h3><p class="text-muted text-sm mb-3">Order before 2pm and it arrives the same evening, city-wide, in our signature wrap.</p><p class="text-accent text-sm">Free over $150</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>Express</h3><p class="text-muted text-sm mb-3">Next-day delivery across the country, with live tracking and a photo of the doorstep moment.</p><p class="text-accent text-sm">From $12</p></div></div>
-                <div class="card reveal"><div class="card-body"><h3>International</h3><p class="text-muted text-sm mb-3">Duty-calculated, insured courier to 40+ countries. Gifts arrive with their card, not an invoice.</p><p class="text-accent text-sm">From $25</p></div></div>
+                <div class="svl-card reveal">
+                    <div class="card-body">
+                        <div class="svl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                        <h3>Same-Day</h3>
+                        <p class="text-muted text-sm mb-3">Order before 2pm and it arrives the same evening, city-wide, in our signature wrap.</p>
+                        <span class="sv-tag">Free over $150</span>
+                    </div>
+                </div>
+                <div class="svl-card reveal" style="transition-delay: 0.15s;">
+                    <div class="card-body">
+                        <div class="svl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+                        <h3>Express</h3>
+                        <p class="text-muted text-sm mb-3">Next-day delivery across the country, with live tracking and a photo of the doorstep moment.</p>
+                        <span class="sv-tag">From $12</span>
+                    </div>
+                </div>
+                <div class="svl-card reveal" style="transition-delay: 0.3s;">
+                    <div class="card-body">
+                        <div class="svl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+                        <h3>International</h3>
+                        <p class="text-muted text-sm mb-3">Duty-calculated, insured courier to 40+ countries. Gifts arrive with their card, not an invoice.</p>
+                        <span class="sv-tag">From $25</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 6: Contact CTA -->
-    <section class="section bg-secondary" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
-        <div class="container text-center reveal">
-            <h2 style="color: var(--color-white);">Not Sure Where To Start?</h2>
-            <p class="subtitle mb-4" style="color: rgba(255,255,255,0.85);">Tell us the occasion and your budget — our curators will build the rest, from the object to the final bow.</p>
+    <section class="section svh-cta">
+        <div class="container reveal" style="position: relative; z-index: 2;">
+            <span class="sv-eyebrow mb-4">A Curator Is One Message Away</span>
+            <h2 class="mb-3">Not Sure Where To Start?</h2>
+            <div class="svh-divider mb-4"><span></span></div>
+            <p class="subtitle mb-4">Tell us the occasion and your budget — our curators will build the rest, from the object to the final bow.</p>
             <div class="flex gap-sm justify-center">
                 <a href="contact.html" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Talk to a Curator</a>
-                <a href="shop.html" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255,255,255,0.6);">Browse the Shop</a>
             </div>
         </div>
     </section>
@@ -178,21 +600,11 @@
                     </a>
                     <p class="footer-desc">Curio's most exclusive destination for personalized gifts and fine souvenirs. A curated sanctuary where every piece tells an extraordinary story.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="Facebook">fb</a>
-                        <a href="#" aria-label="Twitter">tw</a>
-                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                     </div>
-                </div>
-                <div>
-                    <h4>Collections</h4>
-                    <ul class="footer-links">
-                        <li><a href="shop.html" class="footer-link">Luxury Gifts</a></li>
-                        <li><a href="shop.html" class="footer-link">Wedding Sets</a></li>
-                        <li><a href="shop.html" class="footer-link">Corporate</a></li>
-                        <li><a href="shop.html" class="footer-link">Personalized</a></li>
-                        <li><a href="services.html" class="footer-link">Gift Wrapping</a></li>
-                    </ul>
                 </div>
                 <div>
                     <h4>Maison</h4>
@@ -203,6 +615,21 @@
                         <li><a href="services.html" class="footer-link">Services</a></li>
                         <li><a href="blog.html" class="footer-link">Journal</a></li>
                         <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Visit The Atelier</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <a href="https://maps.google.com/?q=12+Rosewood+Lane,+Chennai+600+001" target="_blank" rel="noopener" style="color: #a0a0a0; text-decoration: none;">12 Rosewood Lane, Chennai 600 001</a>
+                        </li>
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span style="color: #a0a0a0;">Mon – Sat, 10am – 8pm</span>
+                        </li>
+                        <li><a href="tel:+919876543210" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>+91 98765 43210</a></li>
+                        <li><a href="mailto:hello@curio.gifts" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>hello@curio.gifts</a></li>
                     </ul>
                 </div>
                 <div>

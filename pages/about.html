@@ -14,9 +14,356 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+    <style>
+        /* ===== About: Premium (lighter than Home 2) ===== */
+.ab-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.15rem;
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: normal;
+            max-width: 100%;
+        }
+
+        .section-title .ab-eyebrow {
+            display: flex;
+            width: fit-content;
+            margin: 0 auto 1rem auto;
+        }
+
+        .ab-eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            .ab-eyebrow {
+                font-size: 0.68rem;
+                letter-spacing: 1.2px;
+                padding: 0.4rem 0.9rem;
+                gap: 0.4rem;
+                line-height: 1.5;
+            }
+        }
+
+        .ab-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 0 auto;
+        }
+        .ab-divider::before,
+        .ab-divider::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8));
+        }
+        .ab-divider::after { background: linear-gradient(90deg, rgba(212, 175, 55, 0.8), transparent); }
+        .ab-divider span {
+            width: 7px;
+            height: 7px;
+            background: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
+        .ab-hero {
+            position: relative;
+            padding: 180px 0;
+            background-image: linear-gradient(rgba(26, 10, 10, 0.62), rgba(26, 10, 10, 0.62)), url('https://i.pinimg.com/1200x/c0/65/ad/c065ade8e12ba4909c093f1bd1d90221.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .ab-hero h1 { color: var(--color-white); }
+        .ab-hero p { color: rgba(255, 255, 255, 0.85); }
+
+        .ab-story {
+            position: relative;
+            padding: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .ab-story::before {
+            content: '';
+            position: absolute;
+            inset: 7px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            pointer-events: none;
+        }
+        .ab-story img {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        .ab-est {
+            position: absolute;
+            z-index: 3;
+            right: 2.5rem;
+            bottom: -1.25rem;
+            background: var(--color-white);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: var(--radius-md);
+            padding: 0.8rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 18px 40px rgba(59, 37, 37, 0.18);
+        }
+        .ab-est h4 { color: var(--color-accent); font-size: 1.6rem; margin-bottom: 0; line-height: 1.1; }
+        .ab-est span { color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        .ab-stat { text-align: center; }
+        .ab-stat h2 {
+            font-family: var(--font-heading);
+            font-size: 2.6rem;
+            color: var(--color-accent);
+            margin-bottom: 0.2rem;
+        }
+        .ab-stat p { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0; }
+        .ab-stat + .ab-stat { border-left: 1px solid var(--border-color); }
+
+        .ab-values {
+            background:
+                radial-gradient(ellipse at 85% 10%, rgba(212, 175, 55, 0.12), transparent 50%),
+                linear-gradient(135deg, #3a1a24 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+        }
+        .ab-values h2 { color: var(--color-white); }
+        .ab-value {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.75rem;
+            text-align: center;
+            transition: all var(--transition-normal);
+            height: 100%;
+        }
+        .ab-value:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        .ab-value .ab-num {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 2.4rem;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(212, 175, 55, 0.7);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .ab-value h3 { color: var(--color-white); font-size: 1.35rem; margin-bottom: 0.6rem; }
+        .ab-value p { color: rgba(255, 255, 255, 0.75); font-size: 0.9rem; margin-bottom: 0; }
+
+        .ab-team-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .ab-team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            z-index: 2;
+        }
+        .ab-team-card .ab-role {
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .ab-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 270px;
+            gap: 1.2rem;
+        }
+
+        .ab-gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+
+        .ab-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .ab-gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 22px;
+            height: 22px;
+            border-top: 1px solid rgba(212, 175, 55, 0.9);
+            border-left: 1px solid rgba(212, 175, 55, 0.9);
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .ab-gallery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 22px;
+            height: 22px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.9);
+            border-right: 1px solid rgba(212, 175, 55, 0.9);
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .ab-cap {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.1rem;
+            background: linear-gradient(180deg, rgba(26, 10, 10, 0.05) 40%, rgba(26, 10, 10, 0.88) 100%);
+            opacity: 0;
+            transition: opacity 0.45s ease;
+        }
+
+        .ab-gallery-item:hover img { transform: scale(1.08); }
+        .ab-gallery-item:hover .ab-cap { opacity: 1; }
+        .ab-gallery-item:hover::before,
+        .ab-gallery-item:hover::after { width: 30px; height: 30px; }
+        .ab-cta {
+            position: relative;
+            text-align: center;
+            background-image: linear-gradient(rgba(26, 10, 10, 0.78), rgba(26, 10, 10, 0.85)), url('https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=1600&auto=format');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .ab-cta::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            pointer-events: none;
+        }
+
+        .ab-cta .ab-eyebrow { margin-left: auto; margin-right: auto; }
+
+        .ab-cta h2 { color: var(--color-white); }
+
+        .ab-cta .text-gold-italic {
+            font-style: italic;
+            background: linear-gradient(120deg, #f5d97e 0%, var(--color-accent) 45%, #f9e9b3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ab-cta .cta-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 0 auto 1.4rem;
+        }
+        .ab-cta .cta-divider::before,
+        .ab-cta .cta-divider::after {
+            content: '';
+            width: 70px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8));
+        }
+        .ab-cta .cta-divider::after { background: linear-gradient(90deg, rgba(212, 175, 55, 0.8), transparent); }
+        .ab-cta .cta-divider span {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
+        .ab-cta p { color: rgba(255, 255, 255, 0.8); }
+
+        .ab-cta .cta-ribbon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2.5rem;
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .ab-cta .cta-ribbon strong { color: var(--color-accent); }
+
+        .ab-cap-tag {
+            align-self: flex-start;
+            padding: 0.2rem 0.65rem;
+            border: 1px solid rgba(212, 175, 55, 0.7);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.18);
+            color: var(--color-accent);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .ab-cap h3 {
+            color: var(--color-white);
+            font-size: 1.05rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .ab-cap p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.78rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .ab-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 210px; gap: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .ab-gallery { grid-template-columns: 1fr; grid-auto-rows: 230px; }
+        }
+    </style>
 </head>
 <body>
-        <nav class="navbar">
+<nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="logo">
                 <img src="../assets/images/logo-mark.svg" alt="Curio" class="logo-icon">
@@ -38,7 +385,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
                 <button class="icon-btn" id="dir-toggle" aria-label="Toggle RTL">RTL</button>
-                <a href="shop.html" class="btn btn-primary" style="text-decoration: none;">Shop Now</a>
+                <a href="contact.html" class="btn btn-primary" style="text-decoration: none;">Book Now</a>
                 <button class="icon-btn hamburger" id="menu-toggle" aria-label="Menu" aria-expanded="false">
                     <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                     <svg class="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -52,132 +399,137 @@
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+            <a href="contact.html" class="btn btn-primary mobile-book">Book Now</a>
         </div>
     </nav>
 
     <!-- 1. Page Header -->
-    <section class="section" style="background-color: var(--bg-secondary); padding: 100px 0;">
+    <section class="ab-hero">
         <div class="container text-center reveal">
-            <h1 class="mb-2">Our Story</h1>
-            <p class="subtitle">Crafting memories through the art of elegant gifting.</p>
-            <p class="mt-3 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">From our first hand-tied bow in 2010 to a global gifting atelier today, Curio has always believed that a gift is more than an object — it is a message, a memory, and a moment that stays forever.</p>
+            <span class="ab-eyebrow mb-4">Curio Atelier · Est. 2010</span>
+            <h1 class="mb-3">Our Story</h1>
+            <div class="ab-divider mb-4"><span></span></div>
+            <p class="subtitle" style="color: rgba(255,255,255,0.85);">Crafting memories through the art of elegant gifting.</p>
+            <p class="mt-3" style="max-width: 640px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.75);">From our first hand-tied bow in 2010 to a global gifting atelier today, Curio has always believed that a gift is more than an object — it is a message, a memory, and a moment that stays forever.</p>
         </div>
     </section>
 
-    <!-- 2. Brand Story -->
+<!-- 2. Brand Story -->
     <section class="section">
-        <div class="container grid grid-2 align-center">
+        <div class="container grid grid-2 align-center" style="gap: 4rem;">
             <div class="reveal fade-left">
-                <h2>The Curio Philosophy</h2>
+                <span class="ab-eyebrow mb-3">The Curio Philosophy</span>
+                <h2 class="mb-3">A Gift Is Never Just An Object</h2>
                 <p class="mb-3">Founded on the belief that every gift should tell a story, Curio has been curating premium souvenirs and luxury items since 2010. We travel the world to find artisans who share our passion for quality and design — from porcelain painters in Florence to silk weavers in Varanasi and lacquer masters in Kyoto.</p>
                 <p class="mb-3">Each piece in our collection is hand-selected, hand-finished, and hand-wrapped by our in-house atelier. Nothing is mass-produced; everything is made to be remembered. Our engraving studio personalises over forty items a day, and every parcel leaves our boutique with a handwritten card sealed in champagne-gold wax.</p>
                 <p>What began as a single boutique now serves clients in more than forty countries — yet every order still passes through the same careful hands that tied our very first bow.</p>
             </div>
-            <div class="reveal fade-right" style="height: 400px; border-radius: var(--radius-lg); overflow: hidden;">
-                <img src="../assets/images/products/gift-still.jpg" alt="Curio Boutique" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="reveal fade-right">
+                <div class="ab-story">
+                    <img src="https://i.pinimg.com/736x/89/46/5a/89465ae402076da33bc52d4dafcb822f.jpg" alt="Curio Boutique">
+                    <div class="ab-est">
+                        <h4>Est. 2010</h4>
+                        <span>One Boutique · One Promise</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="container grid grid-4 text-center mt-5" style="margin-top: 3rem;">
-            <div class="reveal">
-                <h2 class="text-accent">12,000+</h2>
-                <p class="text-muted text-sm">Gifts Delivered</p>
-            </div>
-            <div class="reveal" style="transition-delay: 0.1s;">
-                <h2 class="text-accent">150+</h2>
-                <p class="text-muted text-sm">Partner Artisans</p>
-            </div>
-            <div class="reveal" style="transition-delay: 0.2s;">
-                <h2 class="text-accent">40+</h2>
-                <p class="text-muted text-sm">Countries Served</p>
-            </div>
-            <div class="reveal" style="transition-delay: 0.3s;">
-                <h2 class="text-accent">4.9/5</h2>
-                <p class="text-muted text-sm">Average Rating</p>
+        <div class="container mt-5" style="margin-top: 5rem;">
+            <div class="grid grid-4">
+                <div class="ab-stat reveal"><h2>12,000+</h2><p>Gifts Delivered</p></div>
+                <div class="ab-stat reveal" style="transition-delay: 0.1s;"><h2>150+</h2><p>Partner Artisans</p></div>
+                <div class="ab-stat reveal" style="transition-delay: 0.2s;"><h2>40+</h2><p>Countries Served</p></div>
+                <div class="ab-stat reveal" style="transition-delay: 0.3s;"><h2>4.9/5</h2><p>Average Rating</p></div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Our Values -->
-    <section class="section" style="background: var(--color-primary); color: white;">
+<!-- 3. Our Values -->
+    <section class="section ab-values">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h2 style="color: white;">Our Core Values</h2>
+                <span class="ab-eyebrow mb-3">What Guides Us</span>
+                <h2>Our Core Values</h2>
+                <p class="subtitle" style="color: rgba(255,255,255,0.75);">Three quiet principles that govern every decision — from the workshops we choose to the wrapping we use.</p>
             </div>
-            <div class="grid grid-3 text-center mt-4">
-                <div class="reveal">
-                    <h3 style="color: white;">Quality</h3>
-                    <p style="color: rgba(255,255,255,0.85);">Only the finest materials and craftsmanship. Every piece is inspected by hand — twice — before it earns a place in our boutique.</p>
-                </div>
-                <div class="reveal" style="transition-delay: 0.1s;">
-                    <h3 style="color: white;">Elegance</h3>
-                    <p style="color: rgba(255,255,255,0.85);">Refined designs that stand the test of time. We favour timeless silhouettes over passing trends, so your gift feels as beautiful years from now as it does today.</p>
-                </div>
-                <div class="reveal" style="transition-delay: 0.2s;">
-                    <h3 style="color: white;">Sustainability</h3>
-                    <p style="color: rgba(255,255,255,0.85);">Ethically sourced and eco-friendly packaging. Our ribbons are silk, our boxes are recycled, and every artisan partner is paid fairly for their craft.</p>
-                </div>
+            <div class="grid grid-3 mt-4">
+                <div class="ab-value reveal"><span class="ab-num">01</span><h3>Quality</h3><p>Only the finest materials and craftsmanship. Every piece is inspected by hand — twice — before it earns a place in our boutique.</p></div>
+                <div class="ab-value reveal" style="transition-delay: 0.15s;"><span class="ab-num">02</span><h3>Elegance</h3><p>Refined designs that stand the test of time. We favour timeless silhouettes over passing trends, so your gift feels as beautiful years from now as it does today.</p></div>
+                <div class="ab-value reveal" style="transition-delay: 0.3s;"><span class="ab-num">03</span><h3>Sustainability</h3><p>Ethically sourced and eco-friendly packaging. Our ribbons are silk, our boxes are recycled, and every artisan partner is paid fairly for their craft.</p></div>
             </div>
-            <p class="text-center mt-4" style="color: rgba(255,255,255,0.7); max-width: 640px; margin-left: auto; margin-right: auto;">These three values guide every decision we make — from the workshops we choose to the wrapping we use and the people we thank along the way.</p>
         </div>
     </section>
 
-    <!-- 4. Meet The Team -->
+<!-- 4. Meet The Team -->
     <section class="section">
         <div class="container">
             <div class="text-center section-title reveal">
+                <span class="ab-eyebrow mb-3">The Hands Behind The Bows</span>
                 <h2>The Artisans</h2>
             </div>
             <div class="grid grid-4 mt-4">
-                <div class="card reveal"><div class="card-img-wrapper"><img src="../assets/images/products/diya-set.jpg" alt="Elena Rose"></div><div class="card-body text-center"><h3>Elena Rose</h3><p class="text-accent text-sm mb-1">Founder & Creative Director</p><p class="text-muted text-sm">Started Curio with a single gift box and a dream; still signs every anniversary order herself.</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper"><img src="../assets/images/products/candle-set.jpg" alt="Marcus Lin"></div><div class="card-body text-center"><h3>Marcus Lin</h3><p class="text-accent text-sm mb-1">Master Engraver</p><p class="text-muted text-sm">Twenty years of calligraphy and metalwork; his initials are a quiet mark of perfection.</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper"><img src="../assets/images/products/gift-box-wedding.jpg" alt="Sarah Croft"></div><div class="card-body text-center"><h3>Sarah Croft</h3><p class="text-accent text-sm mb-1">Head Curator</p><p class="text-muted text-sm">Travelled to forty countries sourcing the artisans and treasures that fill our shelves.</p></div></div>
-                <div class="card reveal"><div class="card-img-wrapper"><img src="../assets/images/products/candle-trio.jpg" alt="James Doe"></div><div class="card-body text-center"><h3>James Doe</h3><p class="text-accent text-sm mb-1">Delivery & Logistics</p><p class="text-muted text-sm">The reason parcels arrive on time — and in one piece — in over forty countries.</p></div></div>
+                <div class="card ab-team-card reveal"><div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format" alt="Elena Rose" class="card-zoom" style="object-fit: cover; object-position: center top;"></div><div class="card-body text-center"><h3>Elena Rose</h3><p class="ab-role mb-1">Founder & Creative Director</p><p class="text-muted text-sm">Started Curio with a single gift box and a dream; still signs every anniversary order herself.</p></div></div>
+                <div class="card ab-team-card reveal" style="transition-delay: 0.1s;"><div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=500&auto=format" alt="Marcus Lin" style="object-fit: cover; object-position: center top;"></div><div class="card-body text-center"><h3>Marcus Lin</h3><p class="ab-role mb-1">Master Engraver</p><p class="text-muted text-sm">Twenty years of calligraphy and metalwork; his initials are a quiet mark of perfection.</p></div></div>
+                <div class="card ab-team-card reveal" style="transition-delay: 0.2s;"><div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format" alt="Sarah Croft" style="object-fit: cover; object-position: center 30%;"></div><div class="card-body text-center"><h3>Sarah Croft</h3><p class="ab-role mb-1">Head Curator</p><p class="text-muted text-sm">Travelled to forty countries sourcing the artisans and treasures that fill our shelves.</p></div></div>
+                <div class="card ab-team-card reveal" style="transition-delay: 0.3s;"><div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format" alt="James Doe" style="object-fit: cover; object-position: center top;"></div><div class="card-body text-center"><h3>James Doe</h3><p class="ab-role mb-1">Delivery & Logistics</p><p class="text-muted text-sm">The reason parcels arrive on time — and in one piece — in over forty countries.</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Gallery -->
+<!-- 5. Gallery -->
     <section class="section" style="background: var(--bg-secondary);">
         <div class="container">
-            <h2 class="text-center mb-4 reveal">Behind The Scenes</h2>
-            <div class="grid grid-3">
-                <div class="reveal" style="height: 250px; border-radius: var(--radius-md); overflow: hidden;">
-                    <img src="../assets/images/products/gift-box-birthday.jpg" alt="Wrapping at the atelier" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="text-center section-title reveal">
+                <span class="ab-eyebrow mb-3">From Our Atelier</span>
+                <h2>Behind The Scenes</h2>
+            </div>
+            <div class="ab-gallery">
+                <div class="ab-gallery-item reveal">
+                    <img src="https://i.pinimg.com/736x/40/88/38/4088383cc0c0215c512043e9acba66e7.jpg" alt="Wrapping at the atelier">
+                    <div class="ab-cap"><span class="ab-cap-tag">Atelier</span><h3>The Wrapping Room</h3><p>Where every bow begins</p></div>
                 </div>
-                <div class="reveal" style="height: 250px; border-radius: var(--radius-md); overflow: hidden;">
-                    <img src="../assets/images/products/candle-set.jpg" alt="Candle making" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="ab-gallery-item reveal" style="transition-delay: 0.05s;">
+                    <img src="https://i.pinimg.com/1200x/d4/a6/29/d4a62938c4ff378213a76c7ea312b9e9.jpg" alt="Candle making">
+                    <div class="ab-cap"><span class="ab-cap-tag">Studio</span><h3>Hand-Poured Candles</h3></div>
                 </div>
-                <div class="reveal" style="height: 250px; border-radius: var(--radius-md); overflow: hidden;">
-                    <img src="../assets/images/products/gift-box-wedding.jpg" alt="Wedding gift assembly" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="ab-gallery-item reveal" style="transition-delay: 0.1s;">
+                    <img src="https://i.pinimg.com/1200x/57/0e/dd/570eddd383bb65d27d9eca5fb84e809d.jpg" alt="Wedding gift assembly">
+                    <div class="ab-cap"><span class="ab-cap-tag">Ceremony</span><h3>Wedding Assembles</h3></div>
                 </div>
-                <div class="reveal" style="height: 250px; border-radius: var(--radius-md); overflow: hidden;">
-                    <img src="../assets/images/products/ceramic-vase.jpg" alt="Ceramic studio visit" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="ab-gallery-item reveal" style="transition-delay: 0.15s;">
+                    <img src="https://i.pinimg.com/736x/ae/ff/2a/aeff2a17b72f305f4e37c872e31fba96.jpg" alt="Ceramic studio visit">
+                    <div class="ab-cap"><span class="ab-cap-tag">Partners</span><h3>At The Potter's Wheel</h3></div>
                 </div>
-                <div class="reveal" style="height: 250px; border-radius: var(--radius-md); overflow: hidden;">
-                    <img src="../assets/images/products/silk-scarf.jpg" alt="Silk weaving" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="ab-gallery-item reveal" style="transition-delay: 0.2s;">
+                    <img src="https://i.pinimg.com/1200x/d2/f4/ef/d2f4ef9a7b644c737937c39363efcc21.jpg" alt="Silk weaving">
+                    <div class="ab-cap"><span class="ab-cap-tag">Craft</span><h3>Varanasi Silk Looms</h3></div>
                 </div>
-                <div class="reveal" style="height: 250px; border-radius: var(--radius-md); overflow: hidden;">
-                    <img src="../assets/images/products/diya-set.jpg" alt="Festival collection" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="ab-gallery-item reveal" style="transition-delay: 0.25s;">
+                    <img src="https://i.pinimg.com/1200x/c3/97/24/c3972429793979ebf198aba58efec22e.jpg" alt="Festival collection">
+                    <div class="ab-cap"><span class="ab-cap-tag">Season</span><h3>The Festival Wall</h3></div>
                 </div>
             </div>
             <p class="text-center mt-4 text-muted reveal">Every photo above was taken inside our own boutique and partner workshops — no stock sets, no retouching.</p>
         </div>
     </section>
 
-    <!-- 6. Call to Action -->
-    <section class="section text-center" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
-        <div class="container reveal">
-            <h2 style="color: var(--color-white);">Ready to find the perfect gift?</h2>
-            <p class="subtitle mb-4" style="color: rgba(255,255,255,0.85);">Explore our exclusive collections, or let our curators build something made only for you. Wrapping, engraving and delivery are always included.</p>
+<!-- 6. Call to Action -->
+    <section class="section ab-cta">
+        <div class="container reveal" style="position: relative; z-index: 2;">
+            <span class="ab-eyebrow mb-4">A Gift For Every Story</span>
+            <h2 class="mb-2">Ready to find the <span class="text-gold-italic">perfect</span> gift?</h2>
+            <div class="cta-divider mb-4"><span></span></div>
+            <p class="subtitle mb-4" style="margin-left: auto; margin-right: auto;">Explore our exclusive collections, or let our curators build something made only for you. Wrapping, engraving and delivery are always included.</p>
             <div class="flex gap-sm justify-center">
                 <a href="../index.html" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Start Shopping</a>
                 <a href="contact.html" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255,255,255,0.6);">Talk to a Curator</a>
             </div>
+            <div class="cta-ribbon"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span><strong>Free delivery</strong> on orders over $50 &nbsp;·&nbsp; <strong>30-day returns</strong> &nbsp;·&nbsp; <strong>Gift notes</strong> included</div>
         </div>
     </section>
 
     <!-- Footer -->
-                <footer class="footer" style="position: relative;">
+                                                                                                <footer class="footer" style="position: relative;">
         <div class="footer-separator"></div>
         <div class="footer-container">
             <div class="grid grid-4" style="align-items: flex-start; gap: 3rem; margin-bottom: 3rem;">
@@ -191,21 +543,11 @@
                     </a>
                     <p class="footer-desc">Curio's most exclusive destination for personalized gifts and fine souvenirs. A curated sanctuary where every piece tells an extraordinary story.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="Facebook">fb</a>
-                        <a href="#" aria-label="Twitter">tw</a>
-                        <a href="#" aria-label="YouTube">yt</a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                     </div>
-                </div>
-                <div>
-                    <h4>Collections</h4>
-                    <ul class="footer-links">
-                        <li><a href="shop.html" class="footer-link">Luxury Gifts</a></li>
-                        <li><a href="shop.html" class="footer-link">Wedding Sets</a></li>
-                        <li><a href="shop.html" class="footer-link">Corporate</a></li>
-                        <li><a href="shop.html" class="footer-link">Personalized</a></li>
-                        <li><a href="services.html" class="footer-link">Gift Wrapping</a></li>
-                    </ul>
                 </div>
                 <div>
                     <h4>Maison</h4>
@@ -219,6 +561,21 @@
                     </ul>
                 </div>
                 <div>
+                    <h4>Visit The Atelier</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <a href="https://maps.google.com/?q=12+Rosewood+Lane,+Chennai+600+001" target="_blank" rel="noopener" style="color: #a0a0a0; text-decoration: none;">12 Rosewood Lane, Chennai 600 001</a>
+                        </li>
+                        <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span style="color: #a0a0a0;">Mon – Sat, 10am – 8pm</span>
+                        </li>
+                        <li><a href="tel:+919876543210" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>+91 98765 43210</a></li>
+                        <li><a href="mailto:hello@curio.gifts" class="footer-link" style="display: flex; gap: 0.6rem; align-items: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>hello@curio.gifts</a></li>
+                    </ul>
+                </div>
+                <div>
                     <h4>The Private List</h4>
                     <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; color: #a0a0a0;">Receive exclusive previews, private sale invitations, and gifting insights before anyone else.</p>
                     <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
@@ -227,7 +584,7 @@
                     </form>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div>&copy; 2026 Curio. All rights reserved. Established 2010.</div>
                 <div class="footer-bottom-links">
