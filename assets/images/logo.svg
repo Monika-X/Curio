@@ -1,17 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 140">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
   <defs>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#E8C866"/>
-      <stop offset="1" stop-color="#D4AF37"/>
+    <!-- Rich Metallic Gold Gradient -->
+    <linearGradient id="logo-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5C2"/>
+      <stop offset="25%" stop-color="#F5D77F"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="75%" stop-color="#B88E28"/>
+      <stop offset="100%" stop-color="#8F6B18"/>
     </linearGradient>
+
+    <!-- Highlight Gold -->
+    <linearGradient id="logo-gold-hi" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E5C06E"/>
+      <stop offset="50%" stop-color="#FFF8D6"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+
+    <!-- Deep Burgundy Medallion Radial Gradient -->
+    <radialGradient id="logo-burgundy-seal" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7A223D"/>
+      <stop offset="65%" stop-color="#541427"/>
+      <stop offset="100%" stop-color="#380C19"/>
+    </radialGradient>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="logo-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#1B040A" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="star-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
-  <g transform="translate(10 10) scale(1.8)">
-    <circle cx="32" cy="32" r="30" fill="#651B32"/>
-    <circle cx="32" cy="32" r="30" fill="none" stroke="url(#gold)" stroke-width="3"/>
-    <circle cx="32" cy="32" r="24" fill="none" stroke="#D4AF37" stroke-width="1" opacity="0.65"/>
-    <path d="M22 20 h11 a12 12 0 0 1 0 24 h-11" fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round"/>
-    <path d="M51 8.5 l1.25 2.5 2.5 1.25 -2.5 1.25 -1.25 2.5 -1.25 -2.5 -2.5 -1.25 2.5 -1.25 Z" fill="#D4AF37"/>
+
+  <!-- LEFT: Brand Monogram Emblem -->
+  <g transform="translate(10, 10)">
+    <!-- Medallion Base -->
+    <circle cx="50" cy="50" r="46" fill="url(#logo-burgundy-seal)" stroke="url(#logo-gold)" stroke-width="2.2" filter="url(#logo-shadow)"/>
+    <circle cx="50" cy="50" r="41" fill="none" stroke="url(#logo-gold)" stroke-width="0.9" stroke-dasharray="2 3" opacity="0.85"/>
+    <circle cx="50" cy="50" r="38" fill="none" stroke="url(#logo-gold-hi)" stroke-width="0.6" opacity="0.5"/>
+
+    <!-- 4 Compass Diamonds -->
+    <polygon points="50,6 51.5,8.5 50,11 48.5,8.5" fill="url(#logo-gold)"/>
+    <polygon points="50,89 51.5,91.5 50,94 48.5,91.5" fill="url(#logo-gold)"/>
+    <polygon points="6,50 8.5,48.5 11,50 8.5,51.5" fill="url(#logo-gold)"/>
+    <polygon points="89,50 91.5,48.5 94,50 91.5,51.5" fill="url(#logo-gold)"/>
+
+    <!-- Intertwined Ribbon & "C" -->
+    <g transform="scale(0.833) translate(0, 0)">
+      <path d="M 44 42 C 48 30, 68 28, 76 36 C 82 42, 80 50, 68 56 C 54 62, 42 70, 48 82 C 54 94, 76 92, 82 80" 
+            fill="none" 
+            stroke="url(#logo-gold-hi)" 
+            stroke-width="2.2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            opacity="0.45"/>
+
+      <!-- Serif Finial -->
+      <path d="M 74 37 C 76 34, 79 32.5, 83 32 C 81.5 35, 80 39, 75 42 Z" fill="url(#logo-gold)"/>
+
+      <!-- Main C Body -->
+      <path d="M 76 36.5 C 69 29 55 29 45 37.5 C 33 47.5 33 72.5 45 82.5 C 55 91 69 91 76 83.5 C 78.5 80.5 80 77 82 72.5 C 79 73.5 75.5 74.5 72.5 72 C 67 80 57 82.5 49 76 C 41 69.5 40 50.5 49 44 C 57 37.5 67 40 72.5 48 C 74.5 46 76 41 76 36.5 Z" 
+            fill="url(#logo-gold)"/>
+
+      <path d="M 47 42 C 38 51 38 69 47 78" fill="none" stroke="url(#logo-gold-hi)" stroke-width="1.8" stroke-linecap="round" opacity="0.9"/>
+
+      <!-- Center Knot -->
+      <path d="M 52 54 C 57 51, 67 51, 72 56 C 75 59, 74 64, 69 67 C 62 71, 56 65, 52 61" 
+            fill="none" 
+            stroke="url(#logo-gold)" 
+            stroke-width="2.6" 
+            stroke-linecap="round"/>
+
+      <!-- Star -->
+      <g transform="translate(76, 27)" filter="url(#star-glow)">
+        <path d="M 0,-9 Q 0,0 9,0 Q 0,0 0,9 Q 0,0 -9,0 Q 0,0 0,-9 Z" fill="url(#logo-gold-hi)"/>
+        <circle cx="0" cy="0" r="1.4" fill="#FFFFFF"/>
+      </g>
+    </g>
   </g>
-  <text x="145" y="72" font-family="Georgia, 'Playfair Display', 'Times New Roman', serif" font-size="54" font-weight="700" letter-spacing="6" fill="#651B32">Curio</text>
-  <text x="147" y="100" font-family="Verdana, Arial, sans-serif" font-size="11" letter-spacing="5" fill="#D4AF37">GIFTS THAT TELL YOUR STORY</text>
+
+  <!-- RIGHT: Wordmark & Tagline Lockup -->
+  <g transform="translate(125, 0)">
+    <!-- Primary Brand Wordmark -->
+    <text x="0" y="65" 
+          font-family="'Playfair Display', Georgia, 'Times New Roman', serif" 
+          font-size="46" 
+          font-weight="700" 
+          letter-spacing="4" 
+          fill="#651B32">CURIO</text>
+
+    <!-- Delicate Divider Line with Center Diamond -->
+    <line x1="2" y1="76" x2="252" y2="76" stroke="url(#logo-gold)" stroke-width="0.8" opacity="0.6"/>
+    <polygon points="127,73 130,76 127,79 124,76" fill="url(#logo-gold)"/>
+
+    <!-- Brand Tagline -->
+    <text x="2" y="93" 
+          font-family="'Poppins', 'Montserrat', Arial, sans-serif" 
+          font-size="9.5" 
+          font-weight="600" 
+          letter-spacing="3.2" 
+          fill="#9E761E">GIFTS THAT TELL YOUR STORY</text>
+  </g>
 </svg>

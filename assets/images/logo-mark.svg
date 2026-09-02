@@ -1,29 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
   <defs>
-    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F9E29C"/>
-      <stop offset="35%" stop-color="#D4AF37"/>
-      <stop offset="100%" stop-color="#8A6B1C"/>
+    <!-- Rich Metallic Gold Gradient -->
+    <linearGradient id="gold-grad-rich" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5C2"/>
+      <stop offset="25%" stop-color="#F5D77F"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="75%" stop-color="#B88E28"/>
+      <stop offset="100%" stop-color="#8F6B18"/>
     </linearGradient>
-    <linearGradient id="dark-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1A1814"/>
-      <stop offset="100%" stop-color="#0A0907"/>
+
+    <!-- Subtle Highlight Gold -->
+    <linearGradient id="gold-highlight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E5C06E"/>
+      <stop offset="50%" stop-color="#FFF8D6"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+
+    <!-- Deep Burgundy Medallion Gradient -->
+    <radialGradient id="burgundy-seal" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7A223D"/>
+      <stop offset="65%" stop-color="#541427"/>
+      <stop offset="100%" stop-color="#380C19"/>
+    </radialGradient>
+
+    <!-- Soft Drop Shadow -->
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#1B040A" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Radiant Glow for Star and Accent -->
+    <filter id="gold-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
   </defs>
 
-  <!-- Background Shield/Diamond shape -->
-  <path d="M 60 5 L 110 35 L 110 85 L 60 115 L 10 85 L 10 35 Z" fill="url(#dark-bg)" stroke="url(#gold-grad)" stroke-width="2"/>
-  
-  <!-- Inner geometric lines forming a stylized 'C' -->
-  <path d="M 85 45 L 60 30 L 35 45 L 35 75 L 60 90 L 85 75" fill="none" stroke="url(#gold-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
-  
-  <!-- Prominent 'C' -->
-  <path d="M 75 40 A 30 30 0 1 0 75 80" fill="none" stroke="url(#gold-grad)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
-        
-  <!-- Center gem -->
-  <circle cx="60" cy="60" r="6" fill="url(#gold-grad)"/>
+  <!-- Outer Medallion Base -->
+  <circle cx="60" cy="60" r="54" fill="url(#burgundy-seal)" stroke="url(#gold-grad-rich)" stroke-width="2.5" filter="url(#soft-shadow)"/>
+
+  <!-- Inner Delicate Beaded / Decorative Filigree Ring -->
+  <circle cx="60" cy="60" r="48" fill="none" stroke="url(#gold-grad-rich)" stroke-width="1" stroke-dasharray="2 3.5" opacity="0.85"/>
+  <circle cx="60" cy="60" r="44.5" fill="none" stroke="url(#gold-highlight)" stroke-width="0.75" opacity="0.5"/>
+
+  <!-- 4 Compass/Curator Diamond Accent Beads -->
+  <polygon points="60,8.5 61.8,11.5 60,14.5 58.2,11.5" fill="url(#gold-grad-rich)"/>
+  <polygon points="60,105.5 61.8,108.5 60,111.5 58.2,108.5" fill="url(#gold-grad-rich)"/>
+  <polygon points="8.5,60 11.5,58.2 14.5,60 11.5,61.8" fill="url(#gold-grad-rich)"/>
+  <polygon points="105.5,60 108.5,58.2 111.5,60 108.5,61.8" fill="url(#gold-grad-rich)"/>
+
+  <!-- Main Monogram Motif: Luxury Artisan "C" Intertwined with Ribbon Loop -->
+  <g filter="url(#soft-shadow)">
+    <!-- Intertwined Back Ribbon Accent Curve -->
+    <path d="M 44 42 C 48 30, 68 28, 76 36 C 82 42, 80 50, 68 56 C 54 62, 42 70, 48 82 C 54 94, 76 92, 82 80" 
+          fill="none" 
+          stroke="url(#gold-highlight)" 
+          stroke-width="2.2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          opacity="0.45"/>
+
+    <!-- Bold Sculpted Serif "C" -->
+    <!-- Top Serif Finial -->
+    <path d="M 74 37 C 76 34, 79 32.5, 83 32 C 81.5 35, 80 39, 75 42 Z" 
+          fill="url(#gold-grad-rich)"/>
+
+    <!-- Main Dynamic C Body -->
+    <path d="M 76 36.5 C 69 29 55 29 45 37.5 C 33 47.5 33 72.5 45 82.5 C 55 91 69 91 76 83.5 C 78.5 80.5 80 77 82 72.5 C 79 73.5 75.5 74.5 72.5 72 C 67 80 57 82.5 49 76 C 41 69.5 40 50.5 49 44 C 57 37.5 67 40 72.5 48 C 74.5 46 76 41 76 36.5 Z" 
+          fill="url(#gold-grad-rich)"/>
+
+    <!-- Inner Shading & Dimension Accent on C Spine -->
+    <path d="M 47 42 C 38 51 38 69 47 78" 
+          fill="none" 
+          stroke="url(#gold-highlight)" 
+          stroke-width="1.8" 
+          stroke-linecap="round" 
+          opacity="0.9"/>
+
+    <!-- Luxury Gift Knot / Intertwining Ribbon at Center -->
+    <path d="M 52 54 C 57 51, 67 51, 72 56 C 75 59, 74 64, 69 67 C 62 71, 56 65, 52 61" 
+          fill="none" 
+          stroke="url(#gold-grad-rich)" 
+          stroke-width="2.6" 
+          stroke-linecap="round"/>
+          
+    <path d="M 58 52 C 63 56, 68 60, 74 65" 
+          fill="none" 
+          stroke="url(#gold-highlight)" 
+          stroke-width="1.5" 
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- Radiant 8-Point Brilliance / Curiosity Star (✨) at Upper Right Apex -->
+  <g transform="translate(76, 27)" filter="url(#gold-glow)">
+    <!-- Horizontal & Vertical Primary Rays -->
+    <path d="M 0,-10 Q 0,0 10,0 Q 0,0 0,10 Q 0,0 -10,0 Q 0,0 0,-10 Z" fill="url(#gold-highlight)"/>
+    <!-- Diagonal Subtle Rays -->
+    <path d="M -4.5,-4.5 Q 0,0 4.5,-4.5 Q 0,0 4.5,4.5 Q 0,0 -4.5,4.5 Q 0,0 -4.5,-4.5 Z" fill="url(#gold-grad-rich)" opacity="0.85"/>
+    <!-- Center Sparkling Core -->
+    <circle cx="0" cy="0" r="1.5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Subtle Secondary Micro-Sparkle at Bottom Left -->
+  <g transform="translate(30, 84) scale(0.45)">
+    <path d="M 0,-8 Q 0,0 8,0 Q 0,0 0,8 Q 0,0 -8,0 Q 0,0 0,-8 Z" fill="url(#gold-highlight)"/>
+    <circle cx="0" cy="0" r="1.5" fill="#FFFFFF"/>
+  </g>
 </svg>

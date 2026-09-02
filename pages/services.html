@@ -67,10 +67,34 @@
             display: flex;
             width: fit-content;
             margin: 0 auto 1rem auto;
+            font-size: 0.76rem;
+            letter-spacing: 2.2px;
         }
 
-        .sv-dark .section-title h2 { color: var(--color-white); }
-        .sv-dark .subtitle { color: rgba(255, 255, 255, 0.75); }
+        .section-title h2 {
+            font-size: clamp(2.4rem, 4.5vw, 3.2rem) !important;
+            line-height: 1.18;
+            font-weight: 600;
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title .subtitle {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            max-width: 620px;
+            margin: 0 auto;
+            color: var(--text-muted);
+        }
+
+        .sv-dark .section-title h2 {
+            color: var(--color-white) !important;
+            font-size: clamp(2.4rem, 4.5vw, 3.2rem) !important;
+        }
+        .sv-dark .subtitle {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 0.98rem;
+        }
 
         .sv-card {
             position: relative;
@@ -306,7 +330,216 @@
             color: var(--color-accent);
         }
 
-        .svl-card h3 { margin-bottom: 0.4rem; }
+        .svl-card h3 { 
+            font-size: 1.25rem !important; 
+            font-weight: 600;
+            margin-bottom: 0.4rem; 
+        }
+        [data-theme="dark"] .svl-card h3,
+        [data-theme="dark"] .svl-panel h3,
+        [data-theme="dark"] .card-body h3 {
+            color: #F6EAD2 !important;
+        }
+
+        /* ===== Redesigned Delivery Options Section ===== */
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            margin-top: 3rem;
+        }
+
+        .delivery-card {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.2rem 1.75rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .delivery-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .delivery-card.featured {
+            border-color: rgba(212, 175, 55, 0.55);
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.06) 0%, var(--card-bg) 40%);
+        }
+
+        .delivery-card-header {
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .delivery-tier-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .delivery-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.45rem !important;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+        }
+
+        [data-theme="dark"] .delivery-card h3 {
+            color: #FFFFFF !important;
+        }
+
+        .delivery-price-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.45rem;
+            padding-bottom: 1.1rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .delivery-price-main {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+
+        .delivery-price-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 0.4px;
+        }
+
+        .delivery-speed-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: var(--radius-md);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            color: var(--color-accent);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .delivery-speed-bar svg {
+            flex-shrink: 0;
+        }
+
+        .delivery-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.75rem 0;
+            flex-grow: 1;
+        }
+
+        .delivery-features li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .delivery-features li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--color-accent);
+            font-size: 0.72rem;
+        }
+
+        .delivery-badge-popular {
+            position: absolute;
+            top: -12px;
+            right: 1.5rem;
+            padding: 0.25rem 0.85rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #f5d97e 0%, var(--color-accent) 100%);
+            color: #17100d;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .delivery-trust-strip {
+            margin-top: 3.5rem;
+            padding: 1.75rem 2rem;
+            border-radius: var(--radius-lg);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .delivery-trust-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .delivery-trust-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .delivery-trust-item h4 {
+            font-family: var(--font-body);
+            font-size: 0.86rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            color: var(--text-main);
+        }
+
+        .delivery-trust-item p {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        @media (max-width: 992px) {
+            .delivery-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .delivery-trust-strip { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .delivery-trust-strip { grid-template-columns: 1fr; text-align: left; }
+            .delivery-trust-item { justify-content: flex-start; }
+        }
 
         .svl-panel {
             position: relative;
@@ -439,7 +672,7 @@
     <section id="engraving" class="section bg-secondary" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">Studio One</h6>
+                <span class="sv-eyebrow mb-3">Studio One · Heritage Craft</span>
                 <h2>Engraving & Personalization</h2>
                 <p class="subtitle">Turn a beautiful object into an heirloom with a name, a date, or a message that lasts forever.</p>
             </div>
@@ -540,33 +773,119 @@
     <section class="section">
         <div class="container">
             <div class="text-center section-title reveal">
-                <span class="sv-eyebrow mb-3">From Our Hands To Theirs</span>
+                <span class="sv-eyebrow mb-3">White Glove Logistics · Doorstep Delivery</span>
                 <h2>Delivery Options</h2>
-                <p class="subtitle">Tracked, insured and always beautifully presented — however fast you need it.</p>
+                <p class="subtitle">Tracked, insured, and presented with our signature silk wrap and wax seal — delivered with absolute precision.</p>
             </div>
-            <div class="grid grid-3 mt-4">
-                <div class="svl-card reveal">
-                    <div class="card-body">
-                        <div class="svl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
-                        <h3>Same-Day</h3>
-                        <p class="text-muted text-sm mb-3">Order before 2pm and it arrives the same evening, city-wide, in our signature wrap.</p>
-                        <span class="sv-tag">Free over $150</span>
+            
+            <div class="delivery-grid">
+                <!-- Tier 1: Same-Day -->
+                <div class="delivery-card reveal">
+                    <div class="delivery-card-header">
+                        <span class="delivery-tier-tag">Urgent & Local</span>
+                        <h3>Same-Day Courier</h3>
+                    </div>
+                    <div class="delivery-price-wrap">
+                        <span class="delivery-price-main">Free</span>
+                        <span class="delivery-price-sub">on orders over $150 · $18 flat</span>
+                    </div>
+                    <div class="delivery-speed-bar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>Within 4 Hours (Order by 2 PM)</span>
+                    </div>
+                    <ul class="delivery-features">
+                        <li>Dedicated atelier courier across the city metro</li>
+                        <li>Hand-delivered in signature silk-tied gift box</li>
+                        <li>Live SMS tracking & direct recipient notification</li>
+                        <li>Doorstep photo confirmation upon arrival</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-sm w-full" style="text-align: center;">Choose Same-Day</a>
+                </div>
+
+                <!-- Tier 2: Priority Express (Featured) -->
+                <div class="delivery-card featured reveal" style="transition-delay: 0.15s;">
+                    <span class="delivery-badge-popular">Most Popular</span>
+                    <div class="delivery-card-header">
+                        <span class="delivery-tier-tag">Priority · Nationwide</span>
+                        <h3>Priority Express</h3>
+                    </div>
+                    <div class="delivery-price-wrap">
+                        <span class="delivery-price-main">$12</span>
+                        <span class="delivery-price-sub">Nationwide Flat Rate</span>
+                    </div>
+                    <div class="delivery-speed-bar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        <span>Next Business Day Guaranteed</span>
+                    </div>
+                    <ul class="delivery-features">
+                        <li>Fast express air transit coast-to-coast</li>
+                        <li>Delivered in custom crush-proof wooden outer crate</li>
+                        <li>Real-time tracking with pinpoint ETA updates</li>
+                        <li>Signature required upon delivery for peace of mind</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary btn-sm w-full" style="text-align: center;">Choose Express</a>
+                </div>
+
+                <!-- Tier 3: Global Air -->
+                <div class="delivery-card reveal" style="transition-delay: 0.3s;">
+                    <div class="delivery-card-header">
+                        <span class="delivery-tier-tag">Worldwide · 40+ Countries</span>
+                        <h3>Global White Glove</h3>
+                    </div>
+                    <div class="delivery-price-wrap">
+                        <span class="delivery-price-main">From $25</span>
+                        <span class="delivery-price-sub">All Duties & Taxes Pre-Paid</span>
+                    </div>
+                    <div class="delivery-speed-bar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <span>3 – 5 Business Days Worldwide</span>
+                    </div>
+                    <ul class="delivery-features">
+                        <li>Duty-calculated international priority flight</li>
+                        <li>Dispatched with personalized note, zero price tags/invoices</li>
+                        <li>Comprehensive full-value insurance coverage</li>
+                        <li>Delivered to 40+ countries with diplomatic care</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-sm w-full" style="text-align: center;">Choose Global</a>
+                </div>
+            </div>
+
+            <!-- Trust Bar Strip -->
+            <div class="delivery-trust-strip reveal mt-4">
+                <div class="delivery-trust-item">
+                    <div class="delivery-trust-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <div>
+                        <h4>100% Insured</h4>
+                        <p>Full value transit protection</p>
                     </div>
                 </div>
-                <div class="svl-card reveal" style="transition-delay: 0.15s;">
-                    <div class="card-body">
-                        <div class="svl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
-                        <h3>Express</h3>
-                        <p class="text-muted text-sm mb-3">Next-day delivery across the country, with live tracking and a photo of the doorstep moment.</p>
-                        <span class="sv-tag">From $12</span>
+                <div class="delivery-trust-item">
+                    <div class="delivery-trust-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+                    </div>
+                    <div>
+                        <h4>Signature Packaging</h4>
+                        <p>Silk ribbon & wax seal</p>
                     </div>
                 </div>
-                <div class="svl-card reveal" style="transition-delay: 0.3s;">
-                    <div class="card-body">
-                        <div class="svl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
-                        <h3>International</h3>
-                        <p class="text-muted text-sm mb-3">Duty-calculated, insured courier to 40+ countries. Gifts arrive with their card, not an invoice.</p>
-                        <span class="sv-tag">From $25</span>
+                <div class="delivery-trust-item">
+                    <div class="delivery-trust-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div>
+                        <h4>Live GPS Tracking</h4>
+                        <p>Real-time delivery updates</p>
+                    </div>
+                </div>
+                <div class="delivery-trust-item">
+                    <div class="delivery-trust-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <div>
+                        <h4>Gift Presentation</h4>
+                        <p>Zero price tags or invoices</p>
                     </div>
                 </div>
             </div>

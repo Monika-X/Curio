@@ -374,6 +374,7 @@
             background-size: cover;
             background-position: center;
             overflow: hidden;
+            padding: 90px 20px;
         }
 
         .ct-cta::before {
@@ -388,8 +389,58 @@
         }
 
         .ct-cta .ct-eyebrow { margin-left: auto; margin-right: auto; }
-        .ct-cta h2 { color: var(--color-white); }
+        .ct-cta h2 { color: var(--color-white); font-size: clamp(1.85rem, 4vw, 2.75rem); }
         .ct-cta p { color: rgba(255, 255, 255, 0.8); }
+
+        .ct-cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .ct-cta-btns .btn {
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            padding: 0.85rem 1.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .ct-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 2rem;
+        }
+
+        .ct-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.4rem 0.95rem;
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ct-badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            flex-shrink: 0;
+        }
 
         .ct-faq h4 {
             display: flex;
@@ -409,6 +460,46 @@
         @media (max-width: 768px) {
             .ct-map-wrap iframe { height: 380px; }
             .ct-map-badge { left: 1.5rem; padding: 0.6rem 1rem; }
+        }
+
+        @media (max-width: 640px) {
+            .ct-cta {
+                padding: 60px 15px;
+            }
+            .ct-cta::before {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+            .ct-cta-btns {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                max-width: 300px;
+                margin: 1.5rem auto 0 auto;
+                gap: 0.75rem;
+            }
+            .ct-cta-btns .btn {
+                width: 100%;
+                padding: 0.75rem 1.25rem;
+                font-size: 0.8rem;
+                letter-spacing: 0.8px;
+                text-align: center;
+            }
+            .ct-badges {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                max-width: 290px;
+                margin: 1.5rem auto 0 auto;
+            }
+            .ct-badge {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
     </style>
 </head>
@@ -531,14 +622,19 @@
     <!-- 4. Bulk Enquiry -->
     <section class="section ct-cta">
         <div class="container reveal" style="position: relative; z-index: 2;">
-            <span class="ct-eyebrow mb-4">For Business</span>
+            <span class="ct-eyebrow mb-3">For Business</span>
             <h2 class="mb-2">Corporate & Bulk Gifting</h2>
             <div class="ct-divider mb-4"><span></span></div>
             <p class="subtitle mb-3" style="margin-left: auto; margin-right: auto;">Employee milestones, client appreciation, conference swag — we design, engrave and deliver gift programmes for teams of 10 to 10,000.</p>
             <p class="mb-4" style="max-width: 640px; margin-left: auto; margin-right: auto;">Bespoke pricing, seasonal ranges and dedicated account managers. Share your requirement and receive a curated proposal within 48 hours.</p>
-            <div class="flex gap-sm justify-center">
-                <a href="mailto:corporate@curio.gifts" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent);">Corporate Enquiry</a>
+            <div class="ct-cta-btns">
+                <a href="mailto:corporate@curio.gifts" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent); color: #17100d;">Corporate Enquiry</a>
                 <a href="mailto:corporate@curio.gifts" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255,255,255,0.6);">corporate@curio.gifts</a>
+            </div>
+            <div class="ct-badges">
+                <span class="ct-badge"><span class="ct-badge-dot"></span> Proposal in 48 Hours</span>
+                <span class="ct-badge"><span class="ct-badge-dot"></span> Dedicated Account Lead</span>
+                <span class="ct-badge"><span class="ct-badge-dot"></span> Worldwide Delivery</span>
             </div>
         </div>
     </section>

@@ -159,8 +159,14 @@
             background: #120c0a;
             color: #f6ead2;
         }
-        .h2-dark-section .section-title h2 { color: #f6ead2; }
-        .h2-dark-section .subtitle { color: rgba(246, 234, 210, 0.7); }
+        .h2-dark-section .section-title h2 { color: #f6ead2 !important; }
+        .h2-dark-section .section-title .text-accent,
+        .h2-dark-section .text-accent { color: var(--color-accent) !important; }
+        .h2-dark-section .subtitle { color: rgba(246, 234, 210, 0.75) !important; }
+        .h2-dark-section h1,
+        .h2-dark-section h2,
+        .h2-dark-section h3,
+        .h2-dark-section h4 { color: #f6ead2 !important; }
 
         .h2-feature {
             background: #1b130f;
@@ -196,8 +202,8 @@
             margin-bottom: 1.25rem;
             display: block;
         }
-        .h2-feature h3 { color: #f6ead2; font-size: 1.4rem; margin-bottom: 0.6rem; }
-        .h2-feature p { color: rgba(246, 234, 210, 0.65); font-size: 0.9rem; margin-bottom: 0; }
+        .h2-feature h3 { color: #f6ead2 !important; font-size: 1.4rem; margin-bottom: 0.6rem; font-weight: 600; }
+        .h2-feature p { color: rgba(246, 234, 210, 0.75) !important; font-size: 0.9rem; margin-bottom: 0; line-height: 1.55; }
 
         .h2-banner {
             position: relative;
@@ -207,7 +213,7 @@
             background-attachment: fixed;
             padding: 130px 0;
         }
-        .h2-banner h2 { color: #f6ead2; }
+        .h2-banner h2 { color: #f6ead2 !important; }
 
         .h2-step {
             text-align: center;
@@ -232,14 +238,27 @@
             background: var(--color-accent);
             color: #17100d;
         }
-        .h2-step h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .h2-step p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0; }
+        .h2-step h3 { 
+            color: #f6ead2 !important; 
+            font-size: 1.35rem; 
+            font-weight: 600;
+            margin-bottom: 0.5rem; 
+        }
+        .h2-step p { 
+            color: rgba(246, 234, 210, 0.75) !important; 
+            font-size: 0.92rem; 
+            margin-bottom: 0; 
+            line-height: 1.6;
+        }
 
         .h2-bestseller {
             background: #1b130f;
             border: 1px solid rgba(212, 175, 55, 0.18);
             border-radius: var(--radius-lg);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             transition: all var(--transition-normal);
         }
         .h2-bestseller:hover {
@@ -247,12 +266,52 @@
             border-color: rgba(212, 175, 55, 0.55);
             box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
         }
-        .h2-bestseller .h2-price {
-            color: var(--color-accent);
-            font-weight: 600;
-            font-size: 1.1rem;
+        .h2-bestseller-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
         }
-        .h2-bestseller h3 { color: #f6ead2; }
+        .h2-bestseller-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--transition-slow);
+        }
+        .h2-bestseller:hover .h2-bestseller-img img {
+            transform: scale(1.06);
+        }
+        .h2-bestseller .card-body {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .h2-bestseller h3 { 
+            color: #f6ead2 !important; 
+            font-size: 1.05rem; 
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 0.35rem;
+            min-height: 2.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .h2-bestseller .h2-price {
+            color: var(--color-accent) !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: auto;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
 
         .h2-quote {
             position: relative;
@@ -286,23 +345,130 @@
             text-transform: uppercase;
         }
 
-        .h2-cta {
-            background: linear-gradient(135deg, #d4af37 0%, #a8862a 55%, #d4af37 100%);
+        /* Section 8: Redesigned Luxury CTA Card Container */
+        .h2-cta-section {
+            padding: 5rem 0 6rem 0;
+            background: transparent;
+            position: relative;
+        }
+        .h2-cta-card {
+            max-width: 1060px;
+            margin: 0 auto;
+            background: radial-gradient(circle at 50% 0%, #2A151C 0%, #170C11 65%, #0E0507 100%);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 24px;
+            padding: 4.5rem 3rem 4rem;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
-        .h2-cta h2 { color: #1a1008; }
-        .h2-cta .subtitle { color: rgba(26, 16, 8, 0.8); }
-        .h2-cta .btn-dark {
-            background: #1a1008;
-            color: #f6ead2;
-            border-color: #1a1008;
+        .h2-cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 420px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
         }
-        .h2-cta .btn-dark:hover { background: #2b1c10; }
-        .h2-cta .btn-ghost {
-            background: transparent;
-            color: #1a1008;
-            border-color: rgba(26, 16, 8, 0.6);
+        .h2-cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.25rem;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .h2-cta-badge .h2-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+        .h2-cta-card h2 {
+            color: #ffffff !important;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            margin: 1.25rem 0 1rem;
+            line-height: 1.18;
+            font-family: var(--font-heading);
+        }
+        .h2-cta-card .subtitle {
+            color: rgba(246, 234, 210, 0.85) !important;
+            max-width: 620px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .h2-cta-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2.5rem auto 1.25rem;
+            max-width: 440px;
+        }
+        .h2-cta-divider::before,
+        .h2-cta-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+        }
+        .h2-cta-divider span {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+        }
+        .h2-cta-newsletter-desc {
+            font-size: 0.9rem;
+            color: rgba(246, 234, 210, 0.78);
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+        .h2-cta-form {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .h2-cta-form input {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #ffffff;
+            padding: 0.85rem 1.25rem;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+        }
+        .h2-cta-form input::placeholder {
+            color: rgba(246, 234, 210, 0.6);
+        }
+        .h2-cta-form input:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+        }
+        .h2-cta-form button {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: #170C10;
+            font-weight: 600;
+            padding: 0.85rem 1.75rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            transition: all var(--transition-fast);
+        }
+        .h2-cta-form button:hover {
+            background: #e2c050;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .h2-cta-card {
+                padding: 3rem 1.5rem 2.5rem;
+                border-radius: var(--radius-lg);
+            }
         }
 
         @media (max-width: 1024px) {
@@ -493,14 +659,46 @@
     <section class="section h2-dark-section" style="padding-top: 0;">
         <div class="container">
             <div class="text-center section-title reveal">
-                <h6 class="text-accent">Loved By Thousands</h6>
-                <h2>This Season's Bestsellers</h2>
+                <h6 class="text-accent" style="font-size: 0.8rem; letter-spacing: 2.5px; margin-bottom: 0.5rem;">Loved By Thousands</h6>
+                <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.35rem);">This Season's Bestsellers</h2>
             </div>
             <div class="grid grid-4 mt-4" style="gap: 1.5rem;">
-                <div class="h2-bestseller reveal"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/1200x/8b/aa/cc/8baacc4bf9698c95ccfa8eb99a43501d.jpg" alt="Surprise Crate" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Surprise Crate</h3><p class="h2-price">$65.00 · Birthday</p></div></div>
-                <div class="h2-bestseller reveal" style="transition-delay: 0.1s;"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/1200x/7b/f0/de/7bf0de1e76ce5ad0069516c4a3a1cc68.jpg" alt="Keepsake Gift Box" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Keepsake Gift Box</h3><p class="h2-price">$120.00 · Wedding</p></div></div>
-                <div class="h2-bestseller reveal" style="transition-delay: 0.2s;"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/736x/69/e9/46/69e9461098311d585176930e76f36d7e.jpg" alt="Gold Plated Pen Set" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Gold Plated Pen Set</h3><p class="h2-price">$120.00 · Corporate</p></div></div>
-                <div class="h2-bestseller reveal" style="transition-delay: 0.3s;"><div style="height: 200px; overflow: hidden;"><img src="https://i.pinimg.com/736x/de/c8/17/dec81790834f3b22177b47353482cf21.jpg" alt="Silk Scarf Box" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow);"></div><div class="card-body text-center"><h3>Silk Scarf Box</h3><p class="h2-price">$95.00 · Luxury</p></div></div>
+                <div class="h2-bestseller reveal">
+                    <div class="h2-bestseller-img">
+                        <img src="https://i.pinimg.com/1200x/8b/aa/cc/8baacc4bf9698c95ccfa8eb99a43501d.jpg" alt="Surprise Crate">
+                    </div>
+                    <div class="card-body text-center">
+                        <h3>Surprise Crate</h3>
+                        <p class="h2-price">$65.00 · Birthday</p>
+                    </div>
+                </div>
+                <div class="h2-bestseller reveal" style="transition-delay: 0.1s;">
+                    <div class="h2-bestseller-img">
+                        <img src="https://i.pinimg.com/1200x/7b/f0/de/7bf0de1e76ce5ad0069516c4a3a1cc68.jpg" alt="Keepsake Gift Box">
+                    </div>
+                    <div class="card-body text-center">
+                        <h3>Keepsake Gift Box</h3>
+                        <p class="h2-price">$120.00 · Wedding</p>
+                    </div>
+                </div>
+                <div class="h2-bestseller reveal" style="transition-delay: 0.2s;">
+                    <div class="h2-bestseller-img">
+                        <img src="https://i.pinimg.com/736x/69/e9/46/69e9461098311d585176930e76f36d7e.jpg" alt="Gold Plated Pen Set">
+                    </div>
+                    <div class="card-body text-center">
+                        <h3>Gold Plated Pen Set</h3>
+                        <p class="h2-price">$120.00 · Corporate</p>
+                    </div>
+                </div>
+                <div class="h2-bestseller reveal" style="transition-delay: 0.3s;">
+                    <div class="h2-bestseller-img">
+                        <img src="https://i.pinimg.com/736x/de/c8/17/dec81790834f3b22177b47353482cf21.jpg" alt="Silk Scarf Box">
+                    </div>
+                    <div class="card-body text-center">
+                        <h3>Silk Scarf Box</h3>
+                        <p class="h2-price">$95.00 · Luxury</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -517,19 +715,23 @@
     </section>
 
     <!-- Section 8: CTA + Newsletter -->
-    <section class="section h2-cta">
-        <div class="container text-center reveal">
-            <h2 class="mb-2">Make Every Gift Unforgettable</h2>
-            <p class="subtitle mb-4">Free engraving, signature silk wrapping, and handwritten cards — included with every order from the Curio atelier.</p>
-            <div class="flex gap-sm justify-center">
-                <a href="services.html" class="btn btn-primary btn-dark">Our Services</a>
-                <a href="about.html" class="btn btn-outline btn-ghost">Our Story</a>
+    <section class="section h2-cta-section">
+        <div class="container">
+            <div class="h2-cta-card reveal">
+                <span class="h2-cta-badge"><span class="h2-dot"></span> Curio Atelier · Bespoke Gifting</span>
+                <h2>Make Every Gift <span class="text-gold-italic">Unforgettable</span></h2>
+                <p class="subtitle">Free personalized engraving, signature silk wrapping, and handwritten cards — included with every order from our atelier.</p>
+                <div class="flex gap-sm justify-center">
+                    <a href="services.html" class="btn btn-primary" style="background: var(--color-accent); border-color: var(--color-accent); color: #170C10; font-weight: 600;">Discover Services</a>
+                    <a href="about.html" class="btn btn-outline" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.5);">Our Story</a>
+                </div>
+                <div class="h2-cta-divider"><span>✦</span></div>
+                <p class="h2-cta-newsletter-desc">Join The Private List — one letter a month, private previews & bespoke insights.</p>
+                <form class="newsletter-form h2-cta-form" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Join Atelier</button>
+                </form>
             </div>
-            <p class="text-sm mt-4" style="color: rgba(26,16,8,0.7);">Join The Private List — one letter a month, never more.</p>
-            <form class="newsletter-form" style="max-width: 460px; margin: 1rem auto 0;" onsubmit="event.preventDefault(); this.querySelector('input').value='';">
-                <input type="email" placeholder="Your email" required style="background: rgba(255,255,255,0.35); color: #1a1008;">
-                <button type="submit" class="btn btn-primary btn-dark">Join</button>
-            </form>
         </div>
     </section>
 

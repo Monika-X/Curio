@@ -45,9 +45,24 @@
   --bg-secondary: var(--color-peach);
   --text-main: var(--color-dark);
   --text-muted: #665050;
+  --text-accent: #8F6208;       /* High-contrast rich antique bronze gold for light backgrounds */
   --border-color: rgba(59, 37, 37, 0.1);
   --card-bg: var(--color-white);
   --nav-bg: rgba(255, 249, 243, 0.95);
+
+  /* Footer Theme Variables (Light Mode) */
+  --footer-bg: linear-gradient(180deg, #FAF2EB 0%, #F3E5D8 100%);
+  --footer-text: #3B2525;
+  --footer-muted: #6B5252;
+  --footer-heading: var(--color-primary);
+  --footer-link: #5F4747;
+  --footer-link-hover: var(--color-primary);
+  --footer-border: rgba(101, 27, 50, 0.14);
+  --footer-surface: rgba(101, 27, 50, 0.06);
+  --footer-input-bg: #FFFFFF;
+  --footer-input-border: rgba(101, 27, 50, 0.2);
+  --footer-input-text: #3B2525;
+  --footer-separator-bg: #FAF2EB;
 }
 
 [data-theme="dark"] {
@@ -56,6 +71,7 @@
   --bg-secondary: #2a1a1a;
   --text-main: var(--color-ivory);
   --text-muted: #a08a8a;
+  --text-accent: #F5D77F;       /* Luminous champagne gold for dark backgrounds */
   --border-color: rgba(255, 249, 243, 0.1);
   --card-bg: #221414;
   --nav-bg: rgba(26, 15, 15, 0.95);
@@ -64,6 +80,20 @@
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
   --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  /* Footer Theme Variables (Dark Mode) */
+  --footer-bg: linear-gradient(180deg, #180D10 0%, #0F0709 100%);
+  --footer-text: #F5EAE5;
+  --footer-muted: #A38C8C;
+  --footer-heading: var(--color-accent);
+  --footer-link: #B39D9D;
+  --footer-link-hover: var(--color-accent);
+  --footer-border: rgba(212, 175, 55, 0.2);
+  --footer-surface: rgba(255, 255, 255, 0.08);
+  --footer-input-bg: rgba(255, 255, 255, 0.08);
+  --footer-input-border: rgba(255, 255, 255, 0.15);
+  --footer-input-text: var(--color-ivory);
+  --footer-separator-bg: #180D10;
 }
 
 @media (max-width: 992px) {
